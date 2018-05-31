@@ -1,0 +1,22 @@
+{
+  "name": "spyfall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^6.0.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.0.0-beta.49",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+  }
+}
