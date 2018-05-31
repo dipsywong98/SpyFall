@@ -1,20 +1,18 @@
 import { Component } from 'react'
-import { setLang, getLang } from '../locales/i18n'
-export default class App extends Component {
-  state = {
-    lang: 'en'
-  }
+import { connect } from 'react-redux'
+import { setLang, getLang } from '../lib/store'
 
-  onChange = ({target:{value}}) => {
-    alert('yo')
-    setLang(value)
-    this.setState({ lang: value })
+class Picker extends Component {
+  onChange = ({ target: { value } }) => {
+    console.log(value, getLang())
+    this.props.setLang(value)
   }
 
   render() {
+    const {lang} = this.props
     return (
       <div>
-        {getLang()}
+        {lang}
         <select onChange={this.onChange}>
           {['en', 'zh'].map(lang =>
             <option value={lang}>
@@ -26,3 +24,8 @@ export default class App extends Component {
     )
   }
 }
+
+const mapStateToProps = lang => ({lang})
+const mapDispatchToProps = (dispatch, ownProps) => ({setLang: (...args) => dispatch(setLang(...args))})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Picker)
