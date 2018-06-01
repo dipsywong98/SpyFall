@@ -26,7 +26,7 @@ class Home extends Component {
     this.setState({ roomName: value })
   }
 
-  newGame = async () => {
+  newRoom = async () => {
     this.setState({ loading: true })
     const { roomName, name } = this.state
     const { i18n: { ui }, joinRoom, updateRoom } = this.props
@@ -36,18 +36,21 @@ class Home extends Component {
       this.setState({ loading: false })
     } else {
       console.log('creating room')
-      await dbset(`/rooms/${roomName}`, { location: -1, players: { [name]: -1 } })
+      await dbset(`/rooms/${roomName}`, { location: -1, players: { [name]: -1 }, playing:false })
       this.setState({ loading: false, joinedRoom: true })
     }
   }
 
-  joinGame = async () => {
+  joinRoom = async () => {
     this.setState({ loading: true })
     const { roomName, name } = this.state
     const { i18n: { ui }, joinRoom, updateRoom } = this.props
     let s = await dbonce(`/rooms/${roomName}`)
     if (!s) {
       alert(`${ui.room} ${roomName} ${ui.not_exist}`)
+      this.setState({ loading: false })
+    } else if (s.playing){
+      alert(`${ui.game_already_started}`)
       this.setState({ loading: false })
     } else if (!!s.players && !!s.players[name]) {
       alert(`${ui.player} ${name} ${ui.already_exist}`)
@@ -77,8 +80,8 @@ class Home extends Component {
             <div>
               <p>{ui.enter_your_name}<input onChange={this.nameChangeHandler} value={name}/></p>
               <p>{ui.enter_room_name}<input onChange={this.roomNameChangeHandler} value={roomName}/></p>
-              <button onClick={this.newGame} disabled={!name || !roomName || loading}>{ui.new_game}</button>
-              <button onClick={this.joinGame} disabled={!name || !roomName || loading}>{ui.join_game}</button>
+              <button onClick={this.newRoom} disabled={!name || !roomName || loading}>{ui.new_room}</button>
+              <button onClick={this.joinRoom} disabled={!name || !roomName || loading}>{ui.join_room}</button>
             </div>
           ))}
         <p>{JSON.stringify(config)}</p>
