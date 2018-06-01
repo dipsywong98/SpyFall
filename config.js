@@ -1,4 +1,5 @@
 let config = {
+  mode:'dev',
   endpoint: 'http:/locahost:5000/skyfall',
   firebase: {
     apiKey: "AIzaSyBXULmzpWOIuOjZ6xxRENCUN-AuAjWBahQ",
@@ -15,7 +16,11 @@ const dev_ip = '192.168.11.9'
 
 if(Object.keys(ifaces).length>1){
   if(ifaces[Object.keys(ifaces)[1]][0].address !== dev_ip){
-    config={endpoint: 'http://young-ravine-19261.herokuapp.com/skyfall'}
+    config = {
+      ...config,
+      mode: 'build',
+      endpoint: 'http://young-ravine-19261.herokuapp.com/skyfall'
+    }
   }
 }
 

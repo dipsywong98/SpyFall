@@ -1,5 +1,8 @@
-import firebase from 'firebase'
 import config from '../../config'
+import firebase from 'firebase/app'
+import 'firebase/database'
+// import firebase from 'firebase'
+
 try {
   firebase.initializeApp(config.firebase)
 } catch (e) {
@@ -29,7 +32,7 @@ const dbon = (ref, type, fn) => {
   database.ref(ref).on(type, snapshot=>fn(snapshot.val()))
 }
 
-const dfoff = (ref, type, fn) => {
+const dboff = (ref, type, fn) => {
   database.ref(ref).off(type, fn)
 }
 

@@ -13,6 +13,7 @@ export default {
     "join_my_spyfall_game": "加入我的《Spyfall間諜危機》遊戲！",
     "start_game": "開始遊戲",
     "leave_game": "離開遊戲",
+    "leave_room": "離開房間",
     "show_hide": "檢視/隱藏",
     "you_are_the_spy": "你是間諜！",
     "you_are_not_the_spy": "你<strong>不是</strong>間諜！",

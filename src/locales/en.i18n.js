@@ -13,6 +13,7 @@ export default {
     "join_my_spyfall_game": "Join my Spyfall game!",
     "start_game": "Start Game",
     "leave_game": "Leave Game",
+    "leave_room": "Leave Room",
     "show_hide": "show/hide",
     "you_are_the_spy": "You are the spy!",
     "you_are_not_the_spy": "You are <strong>not</strong> the spy!",

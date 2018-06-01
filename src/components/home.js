@@ -58,6 +58,11 @@ class Home extends Component {
     }
   }
 
+  leaveRoom = () => {
+    console.log('leave room')
+    this.setState({joinedRoom: false})
+  }
+
   render() {
     const { i18n: { ui } } = this.props
     const { name, roomName, loading, joinedRoom } = this.state
@@ -67,11 +72,11 @@ class Home extends Component {
         {(loading ? <Loading /> : null)}
 
         {(joinedRoom
-          ? <Room name={name} roomName={roomName} />
+          ? <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom}/>
           : (
             <div>
-              <p>{ui.enter_your_name}<input onChange={this.nameChangeHandler} /></p>
-              <p>{ui.enter_room_name}<input onChange={this.roomNameChangeHandler} /></p>
+              <p>{ui.enter_your_name}<input onChange={this.nameChangeHandler} value={name}/></p>
+              <p>{ui.enter_room_name}<input onChange={this.roomNameChangeHandler} value={roomName}/></p>
               <button onClick={this.newGame} disabled={!name || !roomName || loading}>{ui.new_game}</button>
               <button onClick={this.joinGame} disabled={!name || !roomName || loading}>{ui.join_game}</button>
             </div>
