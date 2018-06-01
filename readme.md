@@ -24,3 +24,13 @@ start game:
 
 
 ```
+
+dependencies:
+- next
+- react
+- redux
+- firebase
+
+references:
+https://codepen.io/aurer/pen/jEGbA
+https://github.com/scooter3/spyfall/

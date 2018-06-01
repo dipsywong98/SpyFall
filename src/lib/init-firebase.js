@@ -1,16 +1,44 @@
 import firebase from 'firebase'
+import config from '../../config'
+try {
+  firebase.initializeApp(config.firebase)
+} catch (e) {
+}
 
-let config = {
-  apiKey: "AIzaSyBXULmzpWOIuOjZ6xxRENCUN-AuAjWBahQ",
-  authDomain: "spy4-dev.firebaseapp.com",
-  databaseURL: "https://spy4-dev.firebaseio.com",
-  projectId: "spy4-dev",
-  storageBucket: "spy4-dev.appspot.com",
-  messagingSenderId: "614067862845"
-};
-firebase.initializeApp(config)
 let database = firebase.database()
+
+const dbonce = async (ref, type = 'value') => await new Promise((resolve, reject) => {
+  database.ref(ref).once(type).then(snapshot => { resolve(snapshot.val()) }, function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  })//.catch(reject)
+})
+
+const dbupdate = async (ref, value) => await new Promise((resolve, reject) => {
+  database.ref(ref).update(value).then(() => resolve(), function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  }).catch(reject)
+})
+
+const dbset = async (ref, value) => await new Promise((resolve, reject) => {
+  database.ref(ref).set(value).then(() => resolve(), function (errorObject) {
+    console.log("The read failed: " + errorObject.code);
+  }).catch(reject)
+})
+
+const dbon = (ref, type, fn) => {
+  database.ref(ref).on(type, snapshot=>fn(snapshot.val()))
+}
+
+const dfoff = (ref, type, fn) => {
+  database.ref(ref).off(type, fn)
+}
+
 export {
   firebase,
-  database
+  database,
+  dbonce,
+  dbupdate,
+  dbset,
+  dbon,
+  dboff
 }
