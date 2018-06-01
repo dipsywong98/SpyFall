@@ -1,16 +1,11 @@
 import { Component } from 'react'
 import App from '../src/components/app'
-import LangPicker from '../src/components/lang-picker'
-import Test from '../src/components/test'
-export default class Imdex extends Component {
+import Home from '../src/components/home'
+export default class Index extends Component {
   render() {
     return (
       <App>
-        <div>
-          <p>hello world</p>
-          <LangPicker />
-          <Test />
-        </div>
+        <Home />
       </App>
     )
   }

@@ -5,17 +5,19 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^5.0.4",
     "next": "^6.0.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.0.0-beta.49",
