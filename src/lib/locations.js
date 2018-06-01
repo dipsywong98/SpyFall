@@ -2,23 +2,23 @@ export default locations = [
   {
     name: 'airplane',
     roles: [
-      'first class passenger',
-      'air marshall',
+      'first_class_passenger',
+      'air_marshall',
       'mechanic',
-      'air hostess',
+      'air_hostess',
       'copilot',
       'captain',
-      'economy class passenger'
+      'economy_class_passenger'
     ]
   },
   {
     name: 'bank',
     roles: [
-      'armored car driver',
+      'armored_car_driver',
       'manager',
       'consultant',
       'robber',
-      'security guard',
+      'security_guard',
       'teller',
       'customer'
     ]
@@ -26,13 +26,13 @@ export default locations = [
   {
     name: 'beach',
     roles: [
-      'beach waitress',
-      'kite surfer',
+      'beach_waitress',
+      'kite_surfer',
       'lifeguard',
       'thief',
-      'beach photographer',
-      'ice cream truck driver',
-      'beach goer'
+      'beach_photographer',
+      'ice_cream_truck_driver',
+      'beach_goer'
     ]
   },
   {
@@ -48,34 +48,34 @@ export default locations = [
     ]
   },
   {
-    name: 'circus tent',
+    name: 'circus_tent',
     roles: [
       'acrobat',
-      'animal trainer',
+      'animal_trainer',
       'magician',
-      'fire eater',
+      'fire_eater',
       'clown',
       'juggler',
       'visitor'
     ]
   },
   {
-    name: 'corporate party',
+    name: 'corporate_party',
     roles: [
       'entertainer',
       'manager',
-      'unwanted guest',
+      'unwanted_guest',
       'owner',
       'secretary',
-      'delivery boy',
+      'delivery_boy',
       'accountant'
     ]
   },
   {
-    name: 'crusader army',
+    name: 'crusader_army',
     roles: [
       'monk',
-      'imprisoned saracen',
+      'imprisoned_saracen',
       'servant',
       'bishop',
       'squire',
@@ -87,7 +87,7 @@ export default locations = [
     name: 'casino',
     roles: [
       'bartender',
-      'head security guard',
+      'head_security_guard',
       'bouncer',
       'manager',
       'hustler',
@@ -96,12 +96,12 @@ export default locations = [
     ]
   },
   {
-    name: 'day spa',
+    name: 'day_spa',
     roles: [
       'stylist',
       'masseuse',
       'manicurist',
-      'makeup artist',
+      'makeup_artist',
       'dermatologist',
       'beautician',
       'customer'
@@ -110,13 +110,13 @@ export default locations = [
   {
     name: 'embassy',
     roles: [
-      'security guard',
+      'security_guard',
       'secretary',
       'ambassador',
       'tourist',
       'refugee',
       'diplomat',
-      'government official'
+      'government_official'
     ]
   },
   {
@@ -135,7 +135,7 @@ export default locations = [
     name: 'hotel',
     roles: [
       'doorman',
-      'security guard',
+      'security_guard',
       'manager',
       'housekeeper',
       'bartender',
@@ -144,31 +144,31 @@ export default locations = [
     ]
   },
   {
-    name: 'military base',
+    name: 'military_base',
     roles: [
       'deserter',
       'colonel',
       'medic',
       'sniper',
       'officer',
-      'tank engineer',
+      'tank_engineer',
       'soldier'
     ]
   },
   {
-    name: 'movie studio',
+    name: 'movie_studio',
     roles: [
-      'stunt man',
-      'sound engineer',
-      'camera man',
+      'stunt_man',
+      'sound_engineer',
+      'camera_man',
       'director',
-      'costume artist',
+      'costume_artist',
       'producer',
       'actor'
     ]
   },
   {
-    name: 'ocean liner',
+    name: 'ocean_liner',
     roles: [
       'cook',
       'captain',
@@ -176,38 +176,38 @@ export default locations = [
       'musician',
       'waiter',
       'mechanic',
-      'rich passenger'
+      'rich_passenger'
     ]
   },
   {
-    name: 'passenger train',
+    name: 'passenger_train',
     roles: [
       'mechanic',
-      'border patrol',
-      'train attendant',
-      'restaurant chef',
-      'train driver',
+      'border_patrol',
+      'train_attendant',
+      'restaurant_chef',
+      'train_driver',
       'stoker',
       'passenger'
     ]
   },
   {
-    name: 'pirate ship',
+    name: 'pirate_ship',
     roles: [
       'cook',
       'slave',
       'cannoneer',
-      'tied up prisoner',
-      'cabin boy',
-      'brave captain',
+      'tied_up_prisoner',
+      'cabin_boy',
+      'brave_captain',
       'sailor'
     ]
   },
   {
-    name: 'polar station',
+    name: 'polar_station',
     roles: [
       'medic',
-      'expedition leader',
+      'expedition_leader',
       'biologist',
       'radioman',
       'hydrologist',
@@ -216,7 +216,7 @@ export default locations = [
     ]
   },
   {
-    name: 'police station',
+    name: 'police_station',
     roles: [
       'detective',
       'lawyer',
@@ -224,7 +224,7 @@ export default locations = [
       'criminalist',
       'archivist',
       'criminal',
-      'patrol officer'
+      'patrol_officer'
     ]
   },
   {
@@ -233,8 +233,8 @@ export default locations = [
       'musician',
       'bouncer',
       'hostess',
-      'head chef',
-      'food critic',
+      'head_chef',
+      'food_critic',
       'waiter',
       'customer'
     ]
@@ -242,29 +242,29 @@ export default locations = [
   {
     name: 'school',
     roles: [
-      'gym teacher',
+      'gym_teacher',
       'principal',
-      'security guard',
+      'security_guard',
       'janitor',
-      'cafeteria lady',
-      'maintenance man',
+      'cafeteria_lady',
+      'maintenance_man',
       'student'
     ]
   },
   {
-    name: 'service station',
+    name: 'service_station',
     roles: [
       'manager',
-      'tire specialist',
+      'tire_specialist',
       'biker',
-      'car owner',
-      'car wash operator',
+      'car_owner',
+      'car_wash_operator',
       'electrician',
-      'auto mechanic'
+      'auto_mechanic'
     ]
   },
   {
-    name: 'space station',
+    name: 'space_station',
     roles: [
       'engineer',
       'alien',
@@ -272,7 +272,7 @@ export default locations = [
       'commander',
       'scientist',
       'doctor',
-      'space tourist'
+      'space_tourist'
     ]
   },
   {
@@ -280,8 +280,8 @@ export default locations = [
     roles: [
       'cook',
       'commander',
-      'sonar technician',
-      'electronics technician',
+      'sonar_technician',
+      'electronics_technician',
       'radioman',
       'navigator',
       'sailor'
@@ -293,74 +293,74 @@ export default locations = [
       'cashier',
       'butcher',
       'janitor',
-      'security guard',
-      'food sample demonstrator',
-      'shelf stocker',
+      'security_guard',
+      'food_sample_demonstrator',
+      'shelf_stocker',
       'customer'
     ]
   },
   {
     name: 'theater',
     roles: [
-      'coat check lady',
+      'coat_check_lady',
       'prompter',
       'cashier',
       'director',
       'actor',
-      'crew man',
-      'audience member'
+      'crew_man',
+      'audience_member'
     ]
   },
   {
     name: 'university',
     roles: [
-      'graduate student',
+      'graduate_student',
       'professor',
       'dean',
       'psychologist',
-      'maintenance man',
+      'maintenance_man',
       'janitor',
       'student'
     ]
   },
   {
-    name: 'world war ii squad',
+    name: 'world_war_ii_squad',
     roles: [
-      'resistance fighter',
+      'resistance_fighter',
       'radioman',
       'scout',
       'medic',
       'cook',
-      'imprisoned nazi',
+      'imprisoned_nazi',
       'soldier'
     ]
   },
   {
-    name: 'race track',
+    name: 'race_track',
     roles: [
-      'team owner',
+      'team_owner',
       'driver',
       'engineer',
       'spectator',
       'referee',
       'mechanic',
-      'food vendor',
+      'food_vendor',
       'commentator',
       'bookmaker',
       'spectator'
     ]
   },
   {
-    name: 'art museum',
+    name: 'art_museum',
     roles: [
-      'ticket seller',
+      'ticket_seller',
       'student',
       'visitor',
       'teacher',
-      'security guard',
+      'security_guard',
       'painter',
-      'art collector',
-      'art critic',
+      'art_collector',
+      'art_critic',
       'photographer',
       'tourist'
     ]
@@ -369,41 +369,41 @@ export default locations = [
     name: 'vineyard',
     roles: [
       'gardener',
-      'gourmet guide',
+      'gourmet_guide',
       'winemaker',
       'exporter',
       'butler',
-      'wine taster',
+      'wine_taster',
       'sommelier',
       'owner',
-      'vineyard manager',
+      'vineyard_manager',
       'oenologist'
     ]
   },
   {
-    name: 'baseball stadium',
+    name: 'baseball_stadium',
     roles: [
       'pitcher',
       'catcher',
       'commentator',
       'spectator',
-      'security guard',
+      'security_guard',
       'umpire',
-      'food vendor',
+      'food_vendor',
       'manager',
-      'first baseman',
+      'first_baseman',
       'shortstop',
       'outfielder',
-      'second baseman',
-      'third baseman',
+      'second_baseman',
+      'third_baseman',
       'mascot',
-      'team owner'
+      'team_owner'
     ]
   },
   {
     name: 'library',
     roles: [
-      'old man',
+      'old_man',
       'journalist',
       'author',
       'volunteer',
@@ -411,97 +411,97 @@ export default locations = [
       'student',
       'librarian',
       'loudmouth',
-      'book fanatic',
+      'book_fanatic',
       'nerd'
     ]
   },
   {
-    name: 'cat show',
+    name: 'cat_show',
     roles: [
       'judge',
       'cat-handler',
       'veterinarian',
-      'security guard',
-      'cat trainer',
-      'crazy cat lady',
-      'animal lover',
-      'cat owner',
+      'security_guard',
+      'cat_trainer',
+      'crazy_cat_lady',
+      'animal_lover',
+      'cat_owner',
       'cat',
       'cat'
     ]
   },
   {
-    name: 'retirement home',
+    name: 'retirement_home',
     roles: [
       'relative',
-      'cribbage player',
-      'old person',
+      'cribbage_player',
+      'old_person',
       'nurse',
       'janitor',
       'cook',
-      'blind person',
+      'blind_person',
       'psychologist',
-      'old person',
+      'old_person',
       'nurse'
     ]
   },
   {
     name: 'jail',
     roles: [
-      'wrongly accused man',
-      'cctv operator',
+      'wrongly_accused_man',
+      'cctv_operator',
       'guard',
       'visitor',
       'lawyer',
       'janitor',
       'jailkeeper',
       'criminal',
-      'correctional officer',
+      'correctional_officer',
       'maniac'
     ]
   },
   {
-    name: 'construction site',
+    name: 'construction_site',
     roles: [
-      'free-roaming toddler',
+      'free-roaming_toddler',
       'contractor',
-      'crane driver',
+      'crane_driver',
       'trespasser',
-      'safety officer',
+      'safety_officer',
       'electrician',
       'engineer',
       'architect',
-      'construction worker',
-      'construction worker'
+      'construction_worker',
+      'construction_worker'
     ]
   },
   {
-    name: 'the united nations',
+    name: 'the_united_nations',
     roles: [
       'diplomat',
       'interpreter',
       'blowhard',
       'tourist',
-      'napping delegate',
+      'napping_delegate',
       'journalist',
-      'secretary of state',
+      'secretary_of_state',
       'speaker',
       'secretary-general',
       'lobbyist',
     ]
   },
   {
-    name: 'candy factory',
+    name: 'candy_factory',
     roles: [
-      'candy maker',
-      'pastry chef',
+      'candy_maker',
+      'pastry_chef',
       'visitor',
       'taster',
-      'truffle maker',
-      'supply worker',
+      'truffle_maker',
+      'supply_worker',
       'packager',
       'inspector',
-      'machine operator',
+      'machine_operator',
       'janitor',
     ]
   },
@@ -509,28 +509,28 @@ export default locations = [
     name: 'subway',
     roles: [
       'tourist',
-      'subway operator',
-      'ticket inspector',
-      'pregnant lady',
+      'subway_operator',
+      'ticket_inspector',
+      'pregnant_lady',
       'pickpocket',
       'cleaner',
       'businessman',
-      'ticket seller',
-      'old lady',
-      'blind man',
+      'ticket_seller',
+      'old_lady',
+      'blind_man',
     ]
   },
   {
-    name: 'coal mine',
+    name: 'coal_mine',
     roles: [
-      'safety inspector',
+      'safety_inspector',
       'miner',
       'overseer',
-      'dump truck operator',
+      'dump_truck_operator',
       'driller',
       'coordinator',
-      'blasting engineer',
-      'solid waste engineer',
+      'blasting_engineer',
+      'solid_waste_engineer',
       'worker'
     ]
   },
@@ -538,19 +538,19 @@ export default locations = [
     name: 'cemetery',
     roles: [
       'priest',
-      'grave robber',
+      'grave_robber',
       'poet',
-      'mourning person',
+      'mourning_person',
       'gatekeeper',
-      'dead person',
+      'dead_person',
       'relative',
-      'flower seller',
-      'grave digger',
-      'gothic girl'
+      'flower_seller',
+      'grave_digger',
+      'gothic_girl'
     ]
   },
   {
-    name: 'rock concert',
+    name: 'rock_concert',
     roles: [
       'dancer',
       'singer',
@@ -558,21 +558,21 @@ export default locations = [
       'guitarist',
       'drummer',
       'roadie',
-      'stage diver',
-      'security guard',
+      'stage_diver',
+      'security_guard',
       'bassist',
-      'sound technician'
+      'sound_technician'
     ]
   },
   {
-    name: 'jazz club',
+    name: 'jazz_club',
     roles: [
       'bouncer',
       'drummer',
       'pianist',
       'saxophonist',
       'singer',
-      'jazz fanatic',
+      'jazz_fanatic',
       'dancer',
       'barman',
       'vip',
@@ -582,62 +582,62 @@ export default locations = [
   {
     name: 'wedding',
     roles: [
-      'ring bearer',
+      'ring_bearer',
       'groom',
       'bride',
       'officiant',
       'photographer',
-      'flower girl',
-      'father of the bride',
-      'wedding crasher',
-      'best man',
-      'maid of honor',
+      'flower_girl',
+      'father_of_the_bride',
+      'wedding_crasher',
+      'best_man',
+      'maid_of_honor',
       'relative'
     ]
   },
   {
-    name: 'gas station',
+    name: 'gas_station',
     roles: [
-      'car enthusiast',
-      'service attendant',
-      'service attendant',
+      'car_enthusiast',
+      'service_attendant',
+      'service_attendant',
       'shopkeeper',
       'customer',
-      'car washer',
+      'car_washer',
       'cashier',
       'customer',
-      'climate change activist',
+      'climate_change_activist',
       'manager'
     ]
   },
   {
-    name: 'harbor docks',
+    name: 'harbor_docks',
     roles: [
       'loader',
       'loader',
-      'salty old pirate',
+      'salty_old_pirate',
       'captain',
       'sailor',
       'fisherman',
       'exporter',
-      'cargo overseer',
-      'cargo inspector',
+      'cargo_overseer',
+      'cargo_inspector',
       'smuggler'
     ]
   },
   {
-    name: 'sightseeing bus',
+    name: 'sightseeing_bus',
     roles: [
-      'old man',
-      'lone tourist',
+      'old_man',
+      'lone_tourist',
       'driver',
-      'annoying child',
+      'annoying_child',
       'tourist',
       'tourist',
       'tourist',
-      'tour guide',
+      'tour_guide',
       'photographer',
-      'lost person'
+      'lost_person'
     ]
   }
 ]
