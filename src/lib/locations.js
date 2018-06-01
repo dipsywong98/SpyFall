@@ -1,4 +1,4 @@
-export default locations = [
+export default [
   {
     name: 'airplane',
     roles: [

@@ -4,7 +4,8 @@
 firebase:{
   rooms:{
     $id:{
-      location_id (-1): -1 as preparation, other playing
+      playing
+      location (-1):
       $playername: role_id (-1..location_length): -1 as spy, other normal
     }
   }

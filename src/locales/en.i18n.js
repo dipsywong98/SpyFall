@@ -82,6 +82,7 @@ export default {
     "harbor_docks": "Harbor Docks",
     "sightseeing_bus": "Sightseeing Bus",
     "roles": {
+      "spy": "Spy",
       "airplane": {
         "first_class_passenger": "First Class Passenger",
         "air_marshall": "Air Marshal",

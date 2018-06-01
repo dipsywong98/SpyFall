@@ -82,6 +82,7 @@ export default {
     "harbor_docks": "港口碼頭",
     "sightseeing_bus": "觀光巴士",
     "roles": {
+      "spy": "間諜",
       "airplane": {
         "first_class_passenger": "頭等艙乘客",
         "air_marshall": "航空警察",
