@@ -38,11 +38,12 @@ class Room extends Component {
     let { room: { players } } = this.state
     const locationId = randInt(0, locations.length)
     dbupdate(`rooms/${roomName}`, { location: locations[locationId].name, playing: true, startTime: Date.now() })
-    let roles = locations[locationId].roles.slice()
+    console.log(locations[locationId].roles)
+    let roles = Array(locations[locationId].roles).fill('').map((_,k)=>k)
     const defaultRole = roles[roles.length - 1]
     let notAssigned = Object.keys(players)
     while (notAssigned.length > 1) {
-      console.log(notAssigned)
+      console.log(notAssigned, roles)
       let role = defaultRole
       if (roles.length > 0) {
         role = roles.splice(randInt(0, roles.length),1)[0]
@@ -67,9 +68,6 @@ class Room extends Component {
       <div>
         <h2>{roomName}</h2>
         {(loading ? <Loading /> : null)}
-        {locations.length},
-        {Object.keys(i18n.locations).length},
-        {Object.keys(i18n.locations.roles).length},
         {JSON.stringify(room)}
         {/* {room && Object.keys(room.players).join()} */}
         {(room && room.playing

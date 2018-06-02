@@ -6,10 +6,10 @@ export default {
     "join_game": "加入遊戲",
     "new_room": "開新房間",
     "join_room": "加入房間",
-    "enter_room_name":"輸入房間名稱",
-    "room":"房間",
-    "already_exist":"已經存在",
-    "not_exist":"不存在",
+    "enter_room_name": "輸入房間名稱",
+    "room": "房間",
+    "already_exist": "已經存在",
+    "not_exist": "不存在",
     "waiting_for_players": "等待其他玩家...",
     "access_code": "通行號碼",
     "join_my_spyfall_game": "加入我的《Spyfall間諜危機》遊戲！",
@@ -36,543 +36,705 @@ export default {
     "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>《Spyfall間諜危機》</a> 由Alexandr Ushan設計， <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World公司出版</a>。"
   },
   "locations": {
-    "airplane": "民航機",
-    "bank": "銀行",
-    "beach": "海灘",
-    "cathedral": "大教堂",
-    "circus_tent": "馬戲團",
-    "corporate_party": "企業派對",
-    "crusader_army": "十字軍東征",
-    "casino": "賭場",
-    "day_spa": "日光浴Spa",
-    "embassy": "大使館",
-    "hospital": "醫院",
-    "hotel": "旅館",
-    "military_base": "軍事基地",
-    "movie_studio": "攝影棚",
-    "ocean_liner": "度假郵輪",
-    "passenger_train": "載客火車",
-    "pirate_ship": "海盜船",
-    "polar_station": "極地哨站",
-    "police_station": "警察局",
-    "restaurant": "餐廳",
-    "school": "學校",
-    "service_station": "修車廠",
-    "space_station": "太空站",
-    "submarine": "潛水艇",
-    "supermarket": "超級市場",
-    "theater": "歌劇院",
-    "university": "大學",
-    "world_war_ii_squad": "二次大戰中隊",
-    "race_track": "賽車場",
-    "art_museum": "藝術館",
-    "vineyard": "葡萄園",
-    "baseball_stadium": "棒球場",
-    "library": "圖書館",
-    "cat_show": "貓展",
-    "retirement_home": "老人院",
-    "jail": "監獄",
-    "construction_site": "地盤",
-    "the_united_nations": "聯合國",
-    "candy_factory": "糖廠",
-    "subway": "隧道",
-    "coal_mine": "煤礦",
-    "cemetery": "公墓",
-    "rock_concert": "搖滾音樂會",
-    "jazz_club": "爵士俱樂部",
-    "wedding": "婚禮",
-    "gas_station": "油站",
-    "harbor_docks": "港口碼頭",
-    "sightseeing_bus": "觀光巴士",
-    "roles": {
-      "spy": "間諜",
-      "airplane": {
-        "first_class_passenger": "頭等艙乘客",
-        "air_marshall": "航空警察",
-        "mechanic": "飛機技工",
-        "air_hostess": "空服員",
-        "copilot": "副駕駛",
-        "captain": "正駕駛",
-        "economy_class_passenger": "經濟艙乘客"
-      },
-      "bank": {
-        "armored_car_driver": "裝甲車駕駛員",
-        "manager": "銀行經理",
-        "consultant": "投資顧問",
-        "robber": "搶匪",
-        "security_guard": "保全",
-        "teller": "櫃台行員",
-        "customer": "顧客"
-      },
-      "beach": {
-        "beach_waitress": "海灘服務員",
-        "kite_surfer": "放風箏者",
-        "lifeguard": "救生員",
-        "thief": "小偷",
-        "beach_photographer": "海灘攝影者",
-        "ice_cream_truck_driver": "冰淇淋車駕駛員",
-        "beach_goer": "海灘遊客"
-      },
-      "cathedral": {
-        "priest": "牧師",
-        "beggar": "乞丐",
-        "sinner": "贖罪者",
-        "tourist": "遊客",
-        "sponsor": "教會贊助者",
-        "chorister": "唱詩班",
-        "parishioner": "教友"
-      },
-      "circus_tent": {
-        "acrobat": "雜技演員",
-        "animal_trainer": "動物訓練師",
-        "magician": "魔術師",
-        "fire_eater": "吞火表演者",
-        "clown": "小丑",
-        "juggler": "丟球表演者",
-        "visitor": "觀眾"
-      },
-      "corporate_party": {
-        "entertainer": "派對表演者",
-        "manager": "企業經理",
-        "unwanted_guest": "不速之客",
-        "owner": "企業主",
-        "secretary": "秘書",
-        "delivery_boy": "外送員",
-        "accountant": "會計"
-      },
-      "crusader_army": {
-        "monk": "武僧",
-        "imprisoned_saracen": "異教徒囚犯",
-        "servant": "僕人",
-        "bishop": "主教",
-        "squire": "護衛",
-        "archer": "弓箭手",
-        "knight": "騎士"
-      },
-      "casino": {
-        "bartender": "調酒師",
-        "head_security_guard": "保全主管",
-        "bouncer": "保鑣",
-        "manager": "經理",
-        "hustler": "拉皮條",
-        "dealer": "莊家",
-        "gambler": "賭客"
-      },
-      "day_spa": {
-        "stylist": "美容師",
-        "masseuse": "按摩師",
-        "manicurist": "指甲美容師",
-        "makeup_artist": "化妝師",
-        "dermatologist": "皮膚科醫師",
-        "beautician": "彩妝師",
-        "customer": "顧客"
-      },
-      "embassy": {
-        "security_guard": "保全",
-        "secretary": "秘書",
-        "ambassador": "大使",
-        "tourist": "遊客",
-        "refugee": "難民",
-        "diplomat": "外交官",
-        "government_official": "政府官員"
-      },
-      "hospital": {
-        "nurse": "護士",
-        "doctor": "醫師",
-        "anesthesiologist": "麻醉師",
-        "intern": "實習醫師",
-        "therapist": "心理諮詢師",
-        "surgeon": "外科醫師",
-        "patient": "病人"
-      },
-      "hotel": {
-        "doorman": "門房",
-        "security_guard": "保全",
-        "manager": "經理",
-        "housekeeper": "打掃阿姨",
-        "bartender": "調酒師",
-        "bellman": "迎賓原",
-        "customer": "顧客"
-      },
-      "military_base": {
-        "deserter": "離營者",
-        "colonel": "上校",
-        "medic": "醫官",
-        "sniper": "狙擊手",
-        "officer": "行政官",
-        "tank_engineer": "坦克技師",
-        "soldier": "軍人"
-      },
-      "movie_studio": {
-        "stunt_man": "武打替身",
-        "sound_engineer": "聲控師",
-        "camera_man": "攝影師",
-        "director": "導演",
-        "costume_artist": "化妝師",
-        "producer": "製作人",
-        "actor": "演員"
-      },
-      "ocean_liner": {
-        "cook": "廚師",
-        "captain": "船長",
-        "bartender": "調酒師",
-        "musician": "音樂家",
-        "waiter": "服務生",
-        "mechanic": "技師",
-        "rich_passenger": "高級顧客"
-      },
-      "passenger_train": {
-        "mechanic": "火車技師",
-        "border_patrol": "境管局巡守",
-        "train_attendant": "火車服務員",
-        "restaurant_chef": "餐廳大廚",
-        "train_driver": "火車駕駛",
-        "stoker": "火車司爐",
-        "passenger": "乘客"
-      },
-      "pirate_ship": {
-        "cook": "廚師",
-        "slave": "奴隸",
-        "cannoneer": "砲手",
-        "tied_up_prisoner": "囚犯",
-        "cabin_boy": "小跟班",
-        "brave_captain": "勇敢的船長",
-        "sailor": "水手"
-      },
-      "polar_station": {
-        "medic": "醫師",
-        "expedition_leader": "探險隊隊長",
-        "biologist": "生物學家",
-        "radioman": "通訊關",
-        "hydrologist": "水利工程師",
-        "meteorologist": "氣象學家",
-        "geologist": "地理學家"
-      },
-      "police_station": {
-        "detective": "警探",
-        "lawyer": "律師",
-        "journalist": "記者",
-        "criminalist": "犯罪學家",
-        "archivist": "檔案管理員",
-        "criminal": "犯人",
-        "patrol_officer": "巡邏警察"
-      },
-      "restaurant": {
-        "musician": "音樂表演者",
-        "bouncer": "保鑣",
-        "hostess": "女老闆",
-        "head_chef": "大廚",
-        "food_critic": "食物評論家",
-        "waiter": "服務生",
-        "customer": "顧客"
-      },
-      "school": {
-        "gym_teacher": "體育老師",
-        "principal": "校長",
-        "security_guard": "保全",
-        "janitor": "清潔員",
-        "cafeteria_lady": "學校餐廳阿姨",
-        "maintenance_man": "總務",
-        "student": "學生"
-      },
-      "service_station": {
-        "manager": "經理",
-        "tire_specialist": "輪胎技工",
-        "biker": "單車手",
-        "car_owner": "車主",
-        "car_wash_operator": "洗車操作員",
-        "electrician": "墊子技師",
-        "auto_mechanic": "汽車技工"
-      },
-      "space_station": {
-        "engineer": "工程師",
-        "alien": "外星人",
-        "pilot": "駕駛員",
-        "commander": "指揮官",
-        "scientist": "科學家",
-        "doctor": " 醫師",
-        "space_tourist": "太空旅客"
-      },
-      "submarine": {
-        "cook": "廚師",
-        "commander": "指揮官",
-        "sonar_technician": "聲納技工",
-        "electronics_technician": "電子工程師",
-        "radioman": "通訊官",
-        "navigator": "導航員",
-        "sailor": "船員"
-      },
-      "supermarket": {
-        "cashier": "結帳員",
-        "butcher": "屠夫",
-        "janitor": "清潔隊",
-        "security_guard": "保全",
-        "food_sample_demonstrator": "食物展示銷售員",
-        "shelf_stocker": "上貨上架員",
-        "customer": "顧客"
-      },
-      "theater": {
-        "coat_check_lady": "迎賓服務員",
-        "prompter": "大字報操作員",
-        "cashier": "收銀員",
-        "director": "導演",
-        "actor": "演員",
-        "crew_man": "工作人員",
-        "audience_member": "觀眾"
-      },
-      "university": {
-        "graduate_student": "研究生",
-        "professor": "教授",
-        "dean": "校間",
-        "psychologist": "心理諮詢師",
-        "maintenance_man": "總務",
-        "janitor": "清潔隊",
-        "student": "學生"
-      },
-      "world_war_ii_squad": {
-        "resistance_fighter": "反抗鬥士",
-        "radioman": "通訊官",
-        "scout": "前哨",
-        "medic": "醫官",
-        "cook": "廚師",
-        "imprisoned_nazi": "納粹囚犯",
-        "soldier": "軍人"
-      },
-      "race_track": {
-        "team_owner": "隊伍老闆",
-        "driver": "車手",
-        "engineer": "工程師",
-        "spectator": "觀眾",
-        "referee": "裁判",
-        "mechanic": "技工",
-        "food_vendor": "小食部主任",
-        "commentator": "評論員",
-        "bookmaker": "賭博業者"
-      },
-      "art_museum": {
-        "ticket_seller": "售票員",
-        "student": "學生",
-        "visitor": "訪客",
-        "teacher": "教師",
-        "security_guard": "保安員",
-        "painter": "畫家",
-        "art_collector": "收藏家",
-        "art_critic": "評賞員",
-        "photographer": "攝影師",
-        "tourist": "旅客"
-      },
-      "vineyard": {
-        "gardener": "園藝家",
-        "gourmet_guide": "美食家",
-        "winemaker": "winemaker(釀酒師)",
-        "exporter": "出口商",
-        "butler": "男仆",
-        "wine_taster": "品酒師",
-        "sommelier": "侍酒師",
-        "owner": "老闆",
-        "vineyard_manager": "管家",
-        "oenologist": "oenologist(釀酒師)"
-      },
-      "baseball_stadium": {
-        "pitcher": "投手",
-        "catcher": "捕手",
-        "commentator": "評論員",
-        "spectator": "觀眾",
-        "security_guard": "保安員",
-        "umpire": "裁判",
-        "food_vendor": "小食部主任",
-        "manager": "經理",
-        "first_baseman": "一壘手",
-        "shortstop": "游擊手",
-        "outfielder": "外野手",
-        "second_baseman": "二壘手",
-        "third_baseman": "三壘手",
-        "mascot": "吉祥物",
-        "team_owner": "隊伍佬闆"
-      },
-      "library": {
-        "old_man": "老人",
-        "journalist": "記者",
-        "author": "作家",
-        "volunteer": "志願者",
-        "know_it_all": "學霸",
-        "student": "學生",
-        "librarian": "管理員",
-        "loudmouth": "喧嘩者",
-        "book_fanatic": "書迷",
-        "nerd": "書呆子"
-      },
-      "cat_show": {
-        "judge": "裁判",
-        "cat_handler": "貓處理員",
-        "veterinarian": "獸醫",
-        "security_guard": "保安員",
-        "cat_trainer": "馴貓員",
-        "crazy_cat_lady": "瘋狂的貓女士",
-        "animal_lover": "動物愛好者",
-        "cat_owner": "貓奴",
-        "cat": "貓"
-      },
-      "retirement_home": {
-        "relative": "親屬",
-        "cribbage_player": "兒童玩家",
-        "old_person": "老人",
-        "nurse": "護士",
-        "janitor": "清潔工",
-        "cook": "廚師",
-        "blind_person": "盲人",
-        "psychologist": "心理學家"
-      },
-      "jail": {
-        "wrongly_accused_man": "坐寃獄的人",
-        "cctv_operator": "閉路電視管理員",
-        "guard": "守衛",
-        "visitor": "訪客",
-        "lawyer": "律師",
-        "janitor": "清潔工",
-        "jailkeeper": "獄卒",
-        "criminal": "囚犯",
-        "correctional_officer": "懲教主任",
-        "maniac": "瘋子"
-      },
-      "construction_site": {
-        "free_roaming_toddler": "廢青",
-        "contractor": "承包商",
-        "crane_driver": "起重機司機",
-        "trespasser": "侵入者",
-        "safety_officer": "安全主任",
-        "electrician": "電工",
-        "engineer": "工程師",
-        "architect": "建築師",
-        "construction_worker": "工人"
-      },
-      "the_united_nations": {
-        "diplomat": "外交官",
-        "interpreter": "翻譯員",
-        "bloward": "吹牛大王",
-        "tourist": "旅客",
-        "napping_delegate": "小睡的代表",
-        "journalist": "記者",
-        "secretary_of_state": "國務卿",
-        "speaker": "講者",
-        "secretary_general": "常務袐書長",
-        "lobbyist": "說客"
-      },
-      "candy_factory": {
-        "candy_maker": "製糖工人",
-        "pastry_chef": "糕點廚師",
-        "visitor": "訪客",
-        "taster": "品糖師",
-        "truffle_maker": "松露製作師",
-        "supply_worker": "供應工人",
-        "packager": "包裝員",
-        "inspector": "檢查員",
-        "machine_operator": "機器操作員",
-        "janitor": "清潔工"
-      },
-      "subway": {
-        "tourist": "旅客",
-        "subway_operator": "隧道操作員",
-        "ticket_inspector": "檢票員",
-        "pregnant_lady": "孕婦",
-        "pickpocket": "扒手",
-        "cleaner": "清潔人員",
-        "businessman": "商人",
-        "ticket_seller": "售票員",
-        "old_lady": "老婦",
-        "blind_man": "盲人"
-      },
-      "coal_mine": {
-        "safety_inspector": "安全檢查員",
-        "miner": "礦工",
-        "overseer": "監工",
-        "dump_truck_operator": "自卸車操作員",
-        "driller": "司鑽",
-        "coordinator": "協調員",
-        "blasting_engineer": "爆破工程師",
-        "solid_waste_engineer": "固體廢物工程師",
-        "worker": "工人"
-      },
-      "rock_concert": {
-        "dancer": "舞者",
-        "singer": "歌手",
-        "fan": "粉絲",
-        "guitarist": "結他手",
-        "drummer": "鼓手",
-        "roadie": "客串",
-        "stage_diver": "台撲(stage diver)",
-        "security_guard": "保安員",
-        "bassist": "低音結他手",
-        "sound_technician": "音效員"
-      },
-      "jazz_club": {
-        "bouncer": "保镖",
-        "drummer": "鼓手",
-        "pianist": "鋼琴家",
-        "saxophonist": "色士風手",
-        "singer": "歌手",
-        "jazz_fanatic": "爵士樂愛好者",
-        "dancer": "舞者",
-        "barman": "水吧",
-        "vip": "VIP",
-        "waiter": "侍應"
-      },
-      "wedding": {
-        "ring_bearer": "戒指保管人",
-        "groom": "馬夫",
-        "bride": "新娘",
-        "officiant": "主祭",
-        "photographer": "攝影師",
-        "flower_girl": "花女",
-        "father_of_the_bride": "新娘的父親",
-        "wedding_crasher": "婚禮破壞者",
-        "best_man": "新郎",
-        "maid_of_honor": "伴娘",
-        "relative": "親屬"
-      },
-      "gas_station": {
-        "car_enthusiast": "汽車發燒友",
-        "service_attendant": "服務員",
-        "shopkeeper": "店長",
-        "customer": "僱客",
-        "car_washer": "洗車工",
-        "cashier": "收銀",
-        "climate_change_activist": "環團",
-        "manager": "經理"
-      },
-      "harbor_docks": {
-        "loader": "裝載機操作員",
-        "salty_old_pirate": "老海盜",
-        "captain": "船長",
-        "sailor": "水手",
-        "fisherman": "漁夫",
-        "exporter": "出口商",
-        "cargo_overseer": "貨物監督員",
-        "cargo_inspector": "貨物檢查員",
-        "smuggler": "走私者"
-      },
-      "sightseeing_bus": {
-        "old_man": "老人",
-        "lone_tourist": "孤獨旅者",
-        "driver": "司機",
-        "annoying_child": "屁孩",
-        "tourist": "旅客",
-        "tour_guide": "導遊",
-        "photographer": "攝影師",
-        "lost_person": "失蹤人士"
-      },
-      "cemetery": {
-        'priest': "牧師",
-        'grave_robber': "盜墓者",
-        'poet': "詩人",
-        'mourning_person': "哀悼的人",
-        'gatekeeper': "看門者",
-        'dead_person': "死人",
-        'relative': "親屬",
-        'flower_seller': "賣花者",
-        'grave_digger': "掘墓者",
-        'gothic_girl': "哥德式女孩"
-      }
+    "spy": "間諜",
+    "airplane": {
+      "name": "民航機",
+      "roles": [
+        "頭等艙乘客",
+        "空警",
+        "機上技工",
+        "經濟艙乘客",
+        "空服員",
+        "民航機副駕駛",
+        "民航機駕駛"
+      ]
+    },
+    "bank": {
+      "name": "銀行",
+      "roles": [
+        "運鈔車駕駛",
+        "銀行經理",
+        "理財顧問",
+        "銀行顧客",
+        "銀行搶匪",
+        "銀行保全",
+        "銀行行員"
+      ]
+    },
+    "beach": {
+      "name": "遊憩沙灘",
+      "roles": [
+        "沙灘服務生",
+        "放風箏遊客",
+        "沙灘救生員",
+        "小偷",
+        "沙灘遊客",
+        "沙灘拍照遊客",
+        "沙灘冰淇淋小販"
+      ]
+    },
+    "broadway_theater": {
+      "name": "舞台劇戲院",
+      "roles": [
+        "置物櫃管理員",
+        "大字報舉牌者",
+        "賣票收銀員",
+        "戲院觀眾",
+        "舞台劇導演",
+        "舞台劇演員",
+        "舞台劇工作人員"
+      ]
+    },
+    "casino": {
+      "name": "賭場",
+      "roles": [
+        "調酒師",
+        "保全主管",
+        "賭場保全",
+        "賭場經理",
+        "賭場投機客",
+        "賭場派牌員",
+        "賭客"
+      ]
+    },
+    "cathedral": {
+      "name": "大教堂",
+      "roles": [
+        "牧師",
+        "乞丐",
+        "告解者",
+        "教友",
+        "教堂遊客",
+        "教堂贊助者",
+        "唱詩班成員"
+      ]
+    },
+    "circus_tent": {
+      "name": "馬戲團",
+      "roles": [
+        "特技演員",
+        "動物訓練師",
+        "魔術師",
+        "馬戲團觀眾",
+        "吞火表演者",
+        "馬戲團小丑",
+        "雜耍演員"
+      ]
+    },
+    "corporate_party": {
+      "name": "企業派對",
+      "roles": [
+        "餘興節目演員",
+        "企業經理",
+        "不速之客",
+        "企業老闆",
+        "秘書",
+        "會計師",
+        "企業收發人員"
+      ]
+    },
+    "crusader_army": {
+      "name": "十字軍隊伍",
+      "roles": [
+        "武僧",
+        "異教徒囚犯",
+        "僕人",
+        "主教",
+        "隨從",
+        "弓箭手",
+        "騎士"
+      ]
+    },
+    "day_spa": {
+      "name": "日光浴SPA",
+      "roles": [
+        "SPA顧客",
+        "美髮師",
+        "按摩師",
+        "美甲師",
+        "美妝師",
+        "美膚師",
+        "美容師"
+      ]
+    },
+    "embassy": {
+      "name": "大使館",
+      "roles": [
+        "大使館警衛",
+        "大使館秘書",
+        "大使",
+        "大使館專員",
+        "大使館遊客",
+        "大使館難民",
+        "外交官"
+      ]
+    },
+    "hospital": {
+      "name": "醫院",
+      "roles": [
+        "護理師",
+        "內科醫師",
+        "麻醉師",
+        "實習醫師",
+        "病人",
+        "心理治療師",
+        "外科醫師"
+      ]
+    },
+    "hotel": {
+      "name": "旅館",
+      "roles": [
+        "旅館門房",
+        "旅館保全",
+        "旅館經理",
+        "旅館清潔人員",
+        "旅館房客",
+        "旅館酒保",
+        "旅館行李員"
+      ]
+    },
+    "military_base": {
+      "name": "軍事基地",
+      "roles": [
+        "逃兵",
+        "中校",
+        "醫官",
+        "下士",
+        "狙擊手",
+        "士官",
+        "坦克技工"
+      ]
+    },
+    "movie_studio": {
+      "name": "電影攝影棚",
+      "roles": [
+        "演員替身",
+        "配樂人員",
+        "攝影師",
+        "電影導演",
+        "服裝設計人員",
+        "演員",
+        "電影製作人"
+      ]
+    },
+    "ocean_liner": {
+      "name": "度假遊輪",
+      "roles": [
+        "富家子",
+        "廚師",
+        "遊輪船長",
+        "遊輪酒保",
+        "音樂表演者",
+        "遊輪服務員",
+        "遊輪技工"
+      ]
+    },
+    "passenger_train": {
+      "name": "通勤火車",
+      "roles": [
+        "火車技工",
+        "邊界巡守",
+        "火車服務員",
+        "火車乘客",
+        "餐車廚師",
+        "火車工程師",
+        "火車駕駛"
+      ]
+    },
+    "pirate_ship": {
+      "name": "海盜船",
+      "roles": [
+        "海盜船廚師",
+        "海盜船員",
+        "奴隸",
+        "海盜火砲手",
+        "囚犯",
+        "船艙僕人",
+        "偉大的航海王"
+      ]
+    },
+    "polar_station": {
+      "name": "極地科學站",
+      "roles": [
+        "極地醫官",
+        "地質學家",
+        "遠征隊隊長",
+        "生物學家",
+        "極地通訊官",
+        "水文學家",
+        "氣象學家"
+      ]
+    },
+    "police_station": {
+      "name": "警察派出所",
+      "roles": [
+        "警探",
+        "律師",
+        "記者",
+        "犯罪學家",
+        "證物室管理員",
+        "巡邏警察",
+        "犯人"
+      ]
+    },
+    "restaurant": {
+      "name": "餐廳",
+      "roles": [
+        "音樂表演者",
+        "餐廳食客",
+        "餐廳保全",
+        "餐廳女老闆",
+        "餐廳大廚",
+        "美食評論家",
+        "餐廳服務員"
+      ]
+    },
+    "school": {
+      "name": "學校",
+      "roles": [
+        "體育老師",
+        "學生",
+        "校長",
+        "學校保全",
+        "清潔工",
+        "學生餐廳阿姨",
+        "維護人員"
+      ]
+    },
+    "service_station": {
+      "name": "修車廠",
+      "roles": [
+        "修車廠經理",
+        "輪胎技工",
+        "單車族",
+        "車主",
+        "洗車操作員",
+        "電子技工",
+        "汽車修理工"
+      ]
+    },
+    "space_station": {
+      "name": "太空站",
+      "roles": [
+        "太空工程師",
+        "外星人",
+        "太空遊客",
+        "太空站飛行員",
+        "太空站指揮官",
+        "太空站科學家",
+        "太空站醫官"
+      ]
+    },
+    "submarine": {
+      "name": "潛水艇",
+      "roles": [
+        "廚師",
+        "指揮官",
+        "聲納操作員",
+        "電子操作員",
+        "船員",
+        "通訊聯絡員",
+        "領航員"
+      ]
+    },
+    "supermarket": {
+      "name": "超級市場",
+      "roles": [
+        "顧客",
+        "收銀員",
+        "屠夫",
+        "清潔工",
+        "保全人員",
+        "試吃展售員",
+        "上架員"
+      ]
+    },
+    "university": {
+      "name": "大學",
+      "roles": [
+        "研究生",
+        "教授",
+        "校長",
+        "輔導師",
+        "維護人員",
+        "大學生",
+        "清潔工"
+      ]
+    },
+    "amusement_park": {
+      "name": "遊樂園",
+      "roles": [
+        "機動遊戲操作員",
+        "父母",
+        "食物攤販",
+        "收銀員",
+        "開心的小孩",
+        "惱人的小孩",
+        "青少年",
+        "清潔工",
+        "保全",
+        "家長"
+      ]
+    },
+    "art_museum": {
+      "name": "美術博物館",
+      "roles": [
+        "售票員",
+        "學生",
+        "遊客",
+        "老師",
+        "保全",
+        "畫家",
+        "藝術品收藏家",
+        "藝術品評論家",
+        "攝影師",
+        "觀光客"
+      ]
+    },
+    "candy_factory": {
+      "name": "糖果工廠",
+      "roles": [
+        "瘋帽紅頭",
+        "糕點廚師",
+        "遊客",
+        "品酒師",
+        "松露農民",
+        "品酒師",
+        "搬運工人",
+        "小矮人",
+        "檢查員",
+        "機械操作員"
+      ]
+    },
+    "cat_show": {
+      "name": "貓展",
+      "roles": [
+        "法官",
+        "貓處理程員",
+        "獸醫",
+        "保全",
+        "貓咪訓練師",
+        "愛貓成癡的婦人",
+        "動物愛好者",
+        "貓咪的主人",
+        "貓",
+        "貓"
+      ]
+    },
+    "cemetery": {
+      "name": "公墓",
+      "roles": [
+        "牧師",
+        "哥特式女孩",
+        "墳墓強盜",
+        "詩人",
+        "哀悼者",
+        "守門人",
+        "死人",
+        "親屬",
+        "花販",
+        "掘墓者"
+      ]
+    },
+    "coal_mine": {
+      "name": "煤礦",
+      "roles": [
+        "安全督察",
+        "礦工",
+        "監工",
+        "自卸車操作員",
+        "探鑽員",
+        "協調員",
+        "爆破工程師",
+        "礦工",
+        "固體廢物工程師",
+        "工人"
+      ]
+    },
+    "construction_site": {
+      "name": "工地",
+      "roles": [
+        "遊蘯青年",
+        "承包商",
+        "起重機司機",
+        "入侵者",
+        "安全人員",
+        "電工",
+        "工程師",
+        "建築師",
+        "建築工人",
+        "建築工人"
+      ]
+    },
+    "gaming_convention": {
+      "name": "遊戲展",
+      "roles": [
+        "博客",
+        "Cosplay玩家",
+        "遊戲玩家",
+        "參展商",
+        "收藏家",
+        "兒童",
+        "保全",
+        "極客",
+        "害羞的人",
+        "名人"
+      ]
+    },
+    "gas_station": {
+      "name": "加油站",
+      "roles": [
+        "汽車爱好者",
+        "服務員",
+        "店長",
+        "顧客",
+        "洗車工人",
+        "收銀員",
+        "顧客",
+        "環保團體成員",
+        "服務員",
+        "修車廠經理"
+      ]
+    },
+    "harbor_docks": {
+      "name": "港口碼頭",
+      "roles": [
+        "裝卸工人",
+        "老海盜",
+        "船長",
+        "船員",
+        "裝卸工人",
+        "漁民",
+        "出口商",
+        "貨物監督員",
+        "貨物檢驗員",
+        "走私販"
+      ]
+    },
+    "ice_hockey_stadium": {
+      "name": "冰球場",
+      "roles": [
+        "冰球迷",
+        "醫務人員",
+        "冰球選手",
+        "食物小販",
+        "保全",
+        "守門員",
+        "教練",
+        "裁判",
+        "觀眾",
+        "冰球選手"
+      ]
+    },
+    "jail": {
+      "name": "監獄",
+      "roles": [
+        "被錯誤指控的人",
+        "閉路電視操作員",
+        "警衛",
+        "參訪者",
+        "律師",
+        "清潔工",
+        "獄卒",
+        "犯人",
+        "輔導員",
+        "瘋子"
+      ]
+    },
+    "jazz_club": {
+      "name": "爵士樂俱樂部",
+      "roles": [
+        "餐廳保全",
+        "鼓手",
+        "鋼琴手",
+        "薩克斯風手",
+        "歌手",
+        "爵士樂愛好者",
+        "舞者",
+        "酒保",
+        "VIP",
+        "餐廳服務員"
+      ]
+    },
+    "library": {
+      "name": "圖書館",
+      "roles": [
+        "老人",
+        "記者",
+        "作者",
+        "志工",
+        "假裝博學多聞的人",
+        "學生",
+        "圖書館管理員",
+        "大聲喧嘩的人",
+        "愛書成癡的人",
+        "書呆子"
+      ]
+    },
+    "night_club": {
+      "name": "夜店",
+      "roles": [
+        "常客",
+        "酒保",
+        "保全",
+        "舞者",
+        "把妹達人",
+        "交際花",
+        "模特兒",
+        "肌肉男",
+        "喝醉酒的人",
+        "害羞的人"
+      ]
+    },
+    "race_track": {
+      "name": "賽車場",
+      "roles": [
+        "車隊老闆",
+        "賽車駕駛",
+        "車械工程師",
+        "觀眾",
+        "裁判",
+        "機械維修員",
+        "食物小販",
+        "評論員",
+        "賭博業者",
+        "觀眾"
+      ]
+    },
+    "retirement_home": {
+      "name": "安老院",
+      "roles": [
+        "親屬",
+        "紙牌玩家",
+        "老人",
+        "護理師",
+        "清潔工",
+        "廚師",
+        "盲人",
+        "輔導師",
+        "老人",
+        "護理師"
+      ]
+    },
+    "rock_concert": {
+      "name": "搖滾演唱會",
+      "roles": [
+        "舞者",
+        "歌手",
+        "粉絲",
+        "吉他手",
+        "鼓手",
+        "巡迴樂團道具管理員",
+        "人體衝浪者",
+        "保全",
+        "貝斯手",
+        "技術支援"
+      ]
+    },
+    "sightseeing_bus": {
+      "name": "觀光巴士",
+      "roles": [
+        "老人",
+        "獨行觀光客",
+        "巴士司機",
+        "惱人的小孩",
+        "觀光客",
+        "導遊",
+        "攝影師",
+        "觀光客",
+        "迷路人",
+        "觀光客"
+      ]
+    },
+    "stadium": {
+      "name": "體育場",
+      "roles": [
+        "醫生",
+        "鏈球運動員",
+        "運動員",
+        "評論員",
+        "觀眾",
+        "保全",
+        "裁判",
+        "食物小販",
+        "跳高運動員",
+        "短跑運動員"
+      ]
+    },
+    "subway": {
+      "name": "地鐵",
+      "roles": [
+        "觀光客",
+        "地鐡司機",
+        "查票員",
+        "孕婦",
+        "扒手",
+        "清潔工人",
+        "商人",
+        "售票員",
+        "老婦人",
+        "盲人"
+      ]
+    },
+    "the_un": {
+      "name": "聯合國",
+      "roles": [
+        "外交官",
+        "口譯員",
+        "吹牛專家",
+        "觀光客",
+        "小睡中的代表",
+        "記者",
+        "國務大臣",
+        "發言人",
+        "祕書長",
+        "說客"
+      ]
+    },
+    "vineyard": {
+      "name": "葡萄園",
+      "roles": [
+        "園丁",
+        "美食家",
+        "紅酒師",
+        "出口商",
+        "男管家",
+        "品酒師",
+        "侍酒師",
+        "有錢人",
+        "葡萄園經理",
+        "釀酒師"
+      ]
+    },
+    "wedding": {
+      "name": "婚禮",
+      "roles": [
+        "戒童",
+        "馬夫",
+        "新娘",
+        "主祭",
+        "攝影師",
+        "女花童",
+        "新娘之父",
+        "婚禮破壞者",
+        "伴郎",
+        "親屬"
+      ]
+    },
+    "zoo": {
+      "name": "動物園",
+      "roles": [
+        "動物園管理員",
+        "參訪者",
+        "攝影師",
+        "兒童",
+        "獸醫",
+        "觀光客",
+        "食物小販",
+        "收銀員",
+        "動物園管理員",
+        "研究員"
+      ]
     }
   }
 }

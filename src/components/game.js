@@ -10,10 +10,9 @@ class Game extends Component {
   render() {
     const { i18n, i18n: { ui }, room, endGame } = this.props
     const { hide } = this.state
-    const roles = i18n.locations.roles[location]
     let role
-    if (room.players[this.props.name] === 'spy') role = i18n.locations.roles['spy']
-    else role = i18n.locations.roles[room.location][room.players[this.props.name]]
+    if (room.players[this.props.name] === 'spy') role = i18n.locations['spy']
+    else role = i18n.locations[room.location].roles[room.players[this.props.name]]
     return (
       <div>
         <button onClick={() => this.setState({ hide: !hide })}>{ui.show_hide}</button>
@@ -28,7 +27,7 @@ class Game extends Component {
               {ui.you_are_not_the_spy}
             </h2>
             <h4>
-              <p>{ui.the_location} : {i18n.locations[room.location]}</p>
+              <p>{ui.the_location} : {i18n.locations[room.location].name}</p>
               <p>{ui.your_role} : {role}</p>
             </h4>
           </div>))}
