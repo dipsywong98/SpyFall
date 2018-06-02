@@ -12,12 +12,14 @@ class Room extends Component {
     room: null,
     loading: false
   }
+
   componentWillMount = () => {
     const { name, roomName } = this.props
     console.log('will mount')
     dbon(`/rooms/${roomName}`, 'value', room => this.setState({ room }))
     window.addEventListener("beforeunload", this.componentWillUnmount)
   }
+
   componentWillUnmount = () => {
     const { room } = this.state
     const { name, roomName } = this.props
@@ -32,24 +34,31 @@ class Room extends Component {
     }
     window.removeEventListener("beforeunload", this.componentWillUnmount)
   }
+
   startGame = () => {
     this.setState({ loading: true })
     const { roomName } = this.props
     let { room: { players } } = this.state
     const locationId = randInt(0, locations.length)
-    dbupdate(`rooms/${roomName}`, { location: locations[locationId].name, playing: true, startTime: Date.now() })
+    const firstPlayer = Object.keys(players)[randInt(0, Object.keys(players).length)]
+    dbupdate(`rooms/${roomName}`, {
+      location: locations[locationId].name,
+      playing: true,
+      startTime: Date.now(),
+      firstPlayer
+    })
     console.log(locations[locationId].roles)
-    let roles = Array(locations[locationId].roles).fill('').map((_,k)=>k)
+    let roles = Array(locations[locationId].roles).fill('').map((_, k) => k)
     const defaultRole = roles[roles.length - 1]
     let notAssigned = Object.keys(players)
     while (notAssigned.length > 1) {
       console.log(notAssigned, roles)
       let role = defaultRole
       if (roles.length > 0) {
-        role = roles.splice(randInt(0, roles.length),1)[0]
+        role = roles.splice(randInt(0, roles.length), 1)[0]
       }
       let player
-      player = notAssigned.splice(randInt(0, notAssigned.length),1)[0]
+      player = notAssigned.splice(randInt(0, notAssigned.length), 1)[0]
       players[player] = role
       console.log(`${player}->${role}`)
     }
@@ -57,16 +66,18 @@ class Room extends Component {
     dbset(`rooms/${roomName}/players`, players)
     this.setState({ loading: false })
   }
+
   endGame = async () => {
     const { roomName } = this.props
     dbupdate(`rooms/${roomName}`, { location: -1, playing: false, startTime: null })
   }
+
   render() {
     const { i18n, i18n: { ui }, leaveRoom, name, roomName } = this.props
     const { room, loading } = this.state
     return (
       <div>
-        <h2>{roomName}</h2>
+        <h2>{ui.room}: {roomName}</h2>
         {(loading ? <Loading /> : null)}
         {JSON.stringify(room)}
         {/* {room && Object.keys(room.players).join()} */}

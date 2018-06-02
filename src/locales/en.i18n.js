@@ -7,7 +7,7 @@ export default {
     "new_room": "New Room",
     "join_room": "Join Room",
     "enter_room_name": "Enter room name",
-    "room": "room",
+    "room": "Room",
     "already_exist": "already exist",
     "not_exist": "not exist",
     "waiting_for_players": "Waiting For Players...",
