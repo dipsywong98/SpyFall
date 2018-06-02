@@ -19,14 +19,14 @@ export default {
     "game_already_started": "遊戲已經開始",
     "show_hide": "檢視/隱藏",
     "you_are_the_spy": "你是間諜！",
-    "you_are_not_the_spy": "你<strong>不是</strong>間諜！",
+    "you_are_not_the_spy": "你不是間諜！",
     "the_location": "地點",
     "your_role": "你的角色",
     "players": "玩家",
     "players": "玩家",
     "first": "首家",
     "location_reference": "地點參考",
-    "end_game": "遊戲結束",
+    "end_game": "結束遊戲",
     "enter_your_name": "輸入你的名字",
     "create_game": "創建",
     "back": "返回",
@@ -270,7 +270,7 @@ export default {
         "gym_teacher": "體育老師",
         "principal": "校長",
         "security_guard": "保全",
-        "janitor": "清潔隊",
+        "janitor": "清潔員",
         "cafeteria_lady": "學校餐廳阿姨",
         "maintenance_man": "總務",
         "student": "學生"
@@ -364,7 +364,7 @@ export default {
       "vineyard": {
         "gardener": "園藝家",
         "gourmet_guide": "美食家",
-        "winemaker": "winemaker",
+        "winemaker": "winemaker(釀酒師)",
         "exporter": "出口商",
         "butler": "男仆",
         "wine_taster": "品酒師",
@@ -404,7 +404,7 @@ export default {
       },
       "cat_show": {
         "judge": "裁判",
-        "cat_handler": "cat_handler",
+        "cat_handler": "貓處理員",
         "veterinarian": "獸醫",
         "security_guard": "保安員",
         "cat_trainer": "馴貓員",
@@ -463,7 +463,7 @@ export default {
         "pastry_chef": "糕點廚師",
         "visitor": "訪客",
         "taster": "品糖師",
-        "truffle_maker": "Truffle Maker",
+        "truffle_maker": "松露製作師",
         "supply_worker": "供應工人",
         "packager": "包裝員",
         "inspector": "檢查員",
@@ -500,13 +500,13 @@ export default {
         "guitarist": "結他手",
         "drummer": "鼓手",
         "roadie": "客串",
-        "stage_diver": "Stage Diver",
+        "stage_diver": "台撲(stage diver)",
         "security_guard": "保安員",
         "bassist": "低音結他手",
         "sound_technician": "音效員"
       },
       "jazz_club": {
-        "bouncer": "Bouncer",
+        "bouncer": "保镖",
         "drummer": "鼓手",
         "pianist": "鋼琴家",
         "saxophonist": "色士風手",
@@ -560,6 +560,18 @@ export default {
         "tour_guide": "導遊",
         "photographer": "攝影師",
         "lost_person": "失蹤人士"
+      },
+      "cemetery": {
+        'priest': "牧師",
+        'grave_robber': "盜墓者",
+        'poet': "詩人",
+        'mourning_person': "哀悼的人",
+        'gatekeeper': "看門者",
+        'dead_person': "死人",
+        'relative': "親屬",
+        'flower_seller': "賣花者",
+        'grave_digger': "掘墓者",
+        'gothic_girl': "哥德式女孩"
       }
     }
   }

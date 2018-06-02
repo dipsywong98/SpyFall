@@ -19,7 +19,7 @@ export default {
     "game_already_started": "Game already started",
     "show_hide": "show/hide",
     "you_are_the_spy": "You are the spy!",
-    "you_are_not_the_spy": "You are <strong>not</strong> the spy!",
+    "you_are_not_the_spy": "You are not the spy!",
     "the_location": "The location",
     "your_role": "Your role",
     "players": "Players",
@@ -560,6 +560,18 @@ export default {
         "tour_guide": "Tour Guide",
         "photographer": "Photographer",
         "lost_person": "Lost Person"
+      },
+      "cemetery": {
+        'priest': "priest",
+        'grave_robber': "Grave Robber",
+        'poet': "Poet",
+        'mourning_person': "Mourning Person",
+        'gatekeeper': "Gatekeeper",
+        'dead_person': "Dead Person",
+        'relative': "Relative",
+        'flower_seller': "Flower Seller",
+        'grave_digger': "Grave Digger",
+        'gothic_girl': "Gothic Girl"
       }
     }
   }

@@ -41,14 +41,14 @@ class Room extends Component {
     let roles = locations[locationId].roles.slice()
     const defaultRole = roles[roles.length - 1]
     let notAssigned = Object.keys(players)
-    console.log(notAssigned)
     while (notAssigned.length > 1) {
+      console.log(notAssigned)
       let role = defaultRole
       if (roles.length > 0) {
-        role = roles.splice(randInt(0, roles.length))[0]
+        role = roles.splice(randInt(0, roles.length),1)[0]
       }
       let player
-      player = notAssigned.splice(randInt(0, notAssigned.length))[0]
+      player = notAssigned.splice(randInt(0, notAssigned.length),1)[0]
       players[player] = role
       console.log(`${player}->${role}`)
     }
@@ -61,16 +61,19 @@ class Room extends Component {
     dbupdate(`rooms/${roomName}`, { location: -1, playing: false, startTime: null })
   }
   render() {
-    const { i18n: { ui }, leaveRoom, roomName } = this.props
+    const { i18n, i18n: { ui }, leaveRoom, name, roomName } = this.props
     const { room, loading } = this.state
     return (
       <div>
         <h2>{roomName}</h2>
         {(loading ? <Loading /> : null)}
+        {locations.length},
+        {Object.keys(i18n.locations).length},
+        {Object.keys(i18n.locations.roles).length},
         {JSON.stringify(room)}
         {/* {room && Object.keys(room.players).join()} */}
         {(room && room.playing
-          ? null&&<Game room={room} name={name} roomName={roomName} />
+          ? <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
           : <button onClick={this.startGame}>{ui.start_game}</button>
         )}
         <p>

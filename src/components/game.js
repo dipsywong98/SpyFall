@@ -8,24 +8,32 @@ import Loading from './svg/loading'
 class Game extends Component {
   state = { hide: false }
   render() {
-    const { i18n, i18n: { ui }, room } = this.props
+    const { i18n, i18n: { ui }, room, endGame } = this.props
     const { hide } = this.state
     const roles = i18n.locations.roles[location]
     let role
     if (room.players[this.props.name] === 'spy') role = i18n.locations.roles['spy']
-    else role = roles[room.players[this.props.name]]
+    else role = i18n.locations.roles[room.location][room.players[this.props.name]]
     return (
       <div>
         <button onClick={() => this.setState({ hide: !hide })}>{ui.show_hide}</button>
-        {(hide ? null : <div>
-          <h2>
-            {ui.the_location}: {i18n.locations[location]}
-          </h2>
-          <h4>
-            {ui.your_role}: {role}
-          </h4>
-        </div>)}
-        {locations.map(({ name })=> (<p>{name}</p>))}
+        {(hide ? null : (room.players[this.props.name] === 'spy'
+          ? <div>
+            <h2>
+              {ui.you_are_the_spy}
+            </h2>
+          </div>
+          : <div>
+            <h2>
+              {ui.you_are_not_the_spy}
+            </h2>
+            <h4>
+              <p>{ui.the_location} : {i18n.locations[room.location]}</p>
+              <p>{ui.your_role} : {role}</p>
+            </h4>
+          </div>))}
+          <button onClick={endGame}>{ui.end_game}</button>
+        {/* {locations.map(({ name })=> (<p>{name}</p>))} */}
       </div>
 
     )
