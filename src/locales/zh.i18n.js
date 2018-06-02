@@ -1,6 +1,7 @@
 export default {
   "name": "中文",
   "ui": {
+    "spyfall":"間諜危機",
     "welcome_to_spyfall": "歡迎來到《Spyfall間諜危機》",
     "new_game": "開始新遊戲",
     "join_game": "加入遊戲",

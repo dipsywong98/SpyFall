@@ -1,6 +1,7 @@
 export default {
   "name": "English",
   "ui": {
+    "spyfall": "SpyFall",
     "welcome_to_spyfall": "Welcome to Spyfall",
     "new_game": "New Game",
     "join_game": "Join Game",

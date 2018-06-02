@@ -11,13 +11,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase": "^5.0.4",
+    "@material-ui/core": "latest",
+    "jss": "latest",
     "next": "^6.0.3",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "prop-types": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-jss": "latest",
+    "firebase": "^5.0.4",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0",
-    "request": "^2.87.0"
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.0.0-beta.49",

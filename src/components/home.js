@@ -1,4 +1,6 @@
 import { Component } from 'react'
+import { Grid, TextField, Typography, Button } from '@material-ui/core/index'
+import { withStyles } from '@material-ui/core/styles';
 import LangPicker from './lang-picker'
 import { withi18n } from '../lib/i18n'
 import config from '../../config'
@@ -6,7 +8,15 @@ import { database, dbonce, dbset, dbupdate } from '../lib/init-firebase'
 import Room from './room'
 import Loading from './svg/loading'
 
+const styles = theme => ({
+  root: {
+    textAlign: 'center',
+    paddingTop: theme.spacing.unit * 20,
+  },
+});
+
 @withi18n
+@withStyles(styles)
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -36,7 +46,7 @@ class Home extends Component {
       this.setState({ loading: false })
     } else {
       console.log('creating room')
-      await dbset(`/rooms/${roomName}`, { location: -1, players: { [name]: -1 }, playing:false })
+      await dbset(`/rooms/${roomName}`, { location: -1, players: { [name]: -1 }, playing: false })
       this.setState({ loading: false, joinedRoom: true })
     }
   }
@@ -49,7 +59,7 @@ class Home extends Component {
     if (!s) {
       alert(`${ui.room} ${roomName} ${ui.not_exist}`)
       this.setState({ loading: false })
-    } else if (s.playing){
+    } else if (s.playing) {
       alert(`${ui.game_already_started}`)
       this.setState({ loading: false })
     } else if (!!s.players && !!s.players[name]) {
@@ -63,28 +73,65 @@ class Home extends Component {
 
   leaveRoom = () => {
     console.log('leave room')
-    this.setState({joinedRoom: false})
+    this.setState({ joinedRoom: false })
   }
 
   render() {
-    const { i18n: { ui } } = this.props
+    const { i18n: { ui }, classes } = this.props
     const { name, roomName, loading, joinedRoom } = this.state
     return (
-      <div>
-        <h2>{ui.welcome_to_spyfall}</h2>
+      <div className={classes.root}>
+        <Typography variant="display1">{ui.welcome_to_spyfall}</Typography>
         {(loading ? <Loading /> : null)}
 
         {(joinedRoom
-          ? <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom}/>
+          ? <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} />
           : (
             <div>
-              <p>{ui.enter_your_name}<input onChange={this.nameChangeHandler} value={name}/></p>
-              <p>{ui.enter_room_name}<input onChange={this.roomNameChangeHandler} value={roomName}/></p>
-              <button onClick={this.newRoom} disabled={!name || !roomName || loading}>{ui.new_room}</button>
-              <button onClick={this.joinRoom} disabled={!name || !roomName || loading}>{ui.join_room}</button>
+              <Grid spacing={16} container justify="center">
+                <Grid item>
+                  <TextField
+                    id="name"
+                    label={ui.enter_your_name}
+                    margin="normal"
+                    onChange={this.nameChangeHandler}
+                    value={name}
+                    item
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    id="room_name"
+                    label={ui.enter_room_name}
+                    margin="normal"
+                    onChange={this.roomNameChangeHandler}
+                    value={roomName}
+                    item
+                  />
+                </Grid>
+              </Grid>
+              <Grid spacing={16} container justify="center">
+                <Grid item>
+                  <Button
+                    variant="raised"
+                    color="secondary"
+                    onClick={this.newRoom}
+                    disabled={!name || !roomName || loading}>
+                    {ui.new_room}
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="raised"
+                    color="primary"
+                    onClick={this.joinRoom}
+                    disabled={!name || !roomName || loading}>
+                    {ui.join_room}
+                  </Button>
+                </Grid>
+              </Grid>
             </div>
           ))}
-        <p>{JSON.stringify(config)}</p>
         <LangPicker />
       </div>
     )
