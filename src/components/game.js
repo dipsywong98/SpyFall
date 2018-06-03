@@ -20,7 +20,7 @@ class Game extends Component {
   componentWillMount() {
     this.state.timer = setInterval(() => {
       let secondsLeft = this.props.room.startTime / 1000 + 60 * 10 - Date.now() / 1000
-      if(secondsLeft<=0){
+      if (secondsLeft <= 0) {
         clearInterval(this.state.timer)
         this.state.timer = null
       }
@@ -40,7 +40,22 @@ class Game extends Component {
     return (
       <div>
         <Grid container direction='column' justify='center' spacing={16} style={{ textAlign: 'center' }}>
-        <Grid item>
+          <Grid item>
+            <Grid container justify='center'>
+              <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
+                <Grid container justify='canter' spacing={8} direction='column'>
+                  {room && room.players && Object.keys(room.players).map(player => (
+                    <Grid item>
+                      <ToggleDeleteButton>
+                        {player}
+                      </ToggleDeleteButton>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
             <Typography variant='display1'>
               {ui.first_player}
             </Typography>
@@ -61,41 +76,41 @@ class Game extends Component {
             </Typography>
           </Grid>
           <Grid item>
-          <Paper elevation={4}>
-            <Collapse in={!hide} collapsedHeight="40px">
-              <Button
-                variant="raised"
-                elevation={4}
-                className={classes.paper}
-                onClick={() => this.setState({ hide: !hide })}
-              >
-                <Grid container direction='column' spacing={16}>
-                  <Grid item>
-                    <Typography variant="display2" item>
-                      {ui.your_role}
-                    </Typography>
+            <Paper elevation={4}>
+              <Collapse in={!hide} collapsedHeight="40px">
+                <Button
+                  variant="raised"
+                  elevation={4}
+                  className={classes.paper}
+                  onClick={() => this.setState({ hide: !hide })}
+                >
+                  <Grid container direction='column' spacing={16}>
+                    <Grid item>
+                      <Typography variant="display2" item>
+                        {ui.your_role}
+                      </Typography>
+                    </Grid>
+                    <Grid>
+                      <Typography variant="title" item>
+                        {role}
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography variant="display1" item>
+                        {ui.the_location}
+                      </Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography variant="title" item>
+                        {(room.players[this.props.name] === 'spy'
+                          ? ui.you_are_the_spy
+                          : i18n.locations[room.location].name)}
+                      </Typography>
+                    </Grid>
                   </Grid>
-                  <Grid>
-                    <Typography variant="title" item>
-                      {role}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="display1" item>
-                      {ui.the_location}
-                    </Typography>
-                  </Grid>
-                  <Grid item>
-                    <Typography variant="title" item>
-                      {(room.players[this.props.name] === 'spy'
-                        ? ui.you_are_the_spy
-                        : i18n.locations[room.location].name)}
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </Button>
-            </Collapse>
-          </Paper>
+                </Button>
+              </Collapse>
+            </Paper>
           </Grid>
           <Grid item>
             <Typography variant="display1" item>

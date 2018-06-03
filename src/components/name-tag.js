@@ -44,12 +44,12 @@ class NameTag extends Component {
   render() {
     const { i18n:{ui}, classes } = this.props
     return (
-      <Paper>
+      <Paper style={{width:'250px'}}>
         <Grid container justify='space-between' alignItems='center'>
-          <Typography variant='body2' item xs={10} item style={{marginLeft:'8px'}}>{this.props.children}</Typography>
+          <Typography variant='body2' item xs={10} item style={{marginLeft:'8px'}}>{this.props.value}</Typography>
           <Grid item >
-            <Button align="right" size='small' onClick={this.toggleModal} children={<Edit />} />
-            <Button align="right" size='small' onClick={this.props.onDelete} children={<Clear />} />
+            {this.props.onChange && <Button align="right" size='small' onClick={this.toggleModal} children={<Edit />} />}
+            {this.props.onDelete && <Button align="right" size='small' onClick={this.props.onDelete} children={<Clear />} />}
           </Grid>
         </Grid>
         <Modal

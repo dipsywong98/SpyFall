@@ -35,6 +35,7 @@ export default {
     "invalid_access_code": "無效的通行號碼",
     "join": "加入",
     "time_remained": "剩餘時間",
+    "you_have_been_kicked_out": "你被請出房間",
     "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>《Spyfall間諜危機》</a> 由Alexandr Ushan設計， <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World公司出版</a>。"
   },
   "locations": {

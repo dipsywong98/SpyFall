@@ -1,13 +1,14 @@
 import { Component } from 'react'
 import { Typography, Grid, Button, Slide } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
-import { database, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
+import { database, dbonce, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
 import { withi18n } from '../lib/i18n'
 import locations from '../lib/locations'
 import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import Game from './game'
 import ToggleDeleteButton from './toggle-delete-button'
+import NameTag from './name-tag'
 
 const styles = theme => ({
   center: {
@@ -25,7 +26,8 @@ const styles = theme => ({
 class Room extends Component {
   state = {
     room: null,
-    loading: false
+    loading: false,
+    name: this.props.name
   }
 
   componentWillMount = () => {
@@ -43,7 +45,7 @@ class Room extends Component {
       console.log(`rm /rooms/${roomName}/players/${name}`)
       dbset(`/rooms/${roomName}/players/${name}`, null)
     }
-    else {
+    else if (!!room && !!room.players && Object.keys(room.players).indexOf(name) !== -1) {
       console.log(`rm /rooms/${roomName}`)
       dbset(`/rooms/${roomName}`, null)
     }
@@ -87,9 +89,35 @@ class Room extends Component {
     dbupdate(`rooms/${roomName}`, { playing: false, startTime: null })
   }
 
+  onChangeName = async (oldName, newName) => {
+    this.setState({ loading: true })
+    const { roomName, i18n: { ui } } = this.props
+    let s = await dbonce(`rooms/${roomName}/players/${newName}`)
+    if (!!s) {
+      alert(`${ui.player} ${newName} ${ui.already_exist}`)
+    } else {
+      s = await dbonce(`rooms/${roomName}/players/${oldName}`)
+      console.log(s)
+      this.state.name = newName
+      await dbupdate(`rooms/${roomName}/players`, { [newName]: s, [oldName]: null })
+      this.props.changeName(newName)
+    }
+    this.setState({ loading: false })
+  }
+
+  onDeletePlayer = async player => {
+    const { roomName, i18n: { ui } } = this.props
+    console.log(player)
+    await dbset(`rooms/${roomName}/players/${player}`, null)
+  }
+
   render() {
     const { i18n, i18n: { ui }, leaveRoom, name, roomName, classes } = this.props
     const { room, loading } = this.state
+    if (room && room.players && Object.keys(room.players).indexOf(this.state.name) === -1) {
+      alert(ui.you_have_been_kicked_out)
+      leaveRoom()
+    }
     return (
       <Grid direction='column' spacing={16} container justify='center'>
         <Grid item>
@@ -97,36 +125,41 @@ class Room extends Component {
         </Grid>
         {(loading ? <Loading /> : null)}
         {/* {JSON.stringify(room)} */}
-        <Grid item>
-          <Grid container spacing={8} justify='center'>
 
-            {room && room.players && Object.keys(room.players).map(player => (
-              <Grid item>
-                <ToggleDeleteButton>
-                  {player}
-                </ToggleDeleteButton>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
         <Grid item>
-        <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
-          <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
-        </Slide>
+          <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
+            <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
+          </Slide>
         </Grid>
         {/* {room && Object.keys(room.players).join()} */}
-        {(room && room.playing
-          ? (null)
-          : (<Grid item>
-            <Grid container spacing={8} justify='center'>
-              <Grid item>
-                <Button color='secondary' variant='raised' onClick={leaveRoom}>{ui.leave_room}</Button>
-              </Grid>
-              <Grid item>
-                <Button color='primary' variant='raised' onClick={this.startGame}>{ui.start_game}</Button>
+        {(room && room.playing ? null : <Grid item>
+          <Grid container justify='center'>
+            <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
+              <Grid container justify='center' spacing={8} direction='column' alignItems='center'>
+                {room && room.players && Object.keys(room.players).map(player => (
+                  <Grid item style={{ textAlign: 'center' }}>
+                    {(player === name
+                      ? <NameTag value={player} onChange={newName => this.onChangeName(player, newName)} />
+                      : <NameTag value={player} onDelete={() => this.onDeletePlayer(player)} />)}
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
-          </Grid>)
+          </Grid>
+        </Grid>)}
+        {(room && room.playing
+          ? (null)
+          : (
+            <Grid item>
+              <Grid container spacing={8} justify='center'>
+                <Grid item>
+                  <Button color='secondary' variant='raised' onClick={leaveRoom}>{ui.leave_room}</Button>
+                </Grid>
+                <Grid item>
+                  <Button color='primary' variant='raised' onClick={this.startGame}>{ui.start_game}</Button>
+                </Grid>
+              </Grid>
+            </Grid>)
         )}
 
 

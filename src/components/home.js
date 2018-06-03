@@ -47,6 +47,10 @@ class Home extends Component {
     }
   }
 
+  changeName = newName => {
+    this.setState({name: newName})
+  }
+
   nameChangeHandler = ({ target: { value } }) => {
     this.setState({ name: value })
   }
@@ -155,7 +159,7 @@ class Home extends Component {
           </Slide>
           <Slide direction="left" in={joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
-              <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} />
+              <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} changeName={this.changeName} />
               <Grid style={{ marginTop: '32px' }}>
                 <LangPicker />
               </Grid>
