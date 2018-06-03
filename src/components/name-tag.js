@@ -1,19 +1,77 @@
 import { Component } from 'react'
-import { Typography, Paper, Button, Grid } from '@material-ui/core/index'
+import { Typography, Paper, Button, Grid, Modal, TextField } from '@material-ui/core/index'
+import { withStyles } from '@material-ui/core/styles'
 import Clear from './svg/clear'
 import Edit from './svg/edit'
+import { withi18n } from '../lib/i18n'
 
+const styles = theme => ({
+  paper: {
+    position: 'absolute',
+    width: theme.spacing.unit * 50,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    top: `50%`,
+    left: `50%`,
+    transform: `translate(-50%, -50%)`
+  },
+})
+
+@withi18n
+@withStyles(styles)
 class NameTag extends Component {
+  state = {
+    editing: false,
+    value: this.props.value
+  }
+  valueChangeHandler = ({ target: { value } }) => {
+    this.setState({ value })
+  }
+  handleClose = () => {
+    this.setState({ editing: false })
+    window.onkeyup = null
+    if(this.props.onChange)this.props.onChange(this.state.value)
+  }
+  toggleModal = () => {
+    window.onkeyup = e => {
+      const key = e.keyCode ? e.keyCode : e.which
+      console.log(key)
+      if(key===13)this.handleClose()
+    }
+    this.setState({editing:true})
+  }
   render() {
+    const { i18n:{ui}, classes } = this.props
     return (
       <Paper>
         <Grid container justify='space-between' alignItems='center'>
-          <Typography variant='body2' item xs={10} item>{this.props.children}</Typography>
+          <Typography variant='body2' item xs={10} item style={{marginLeft:'8px'}}>{this.props.children}</Typography>
           <Grid item >
-          <Button align="right" size='small' children={<Edit />} />
-          <Button align="right" mini variant='fab' style={{backgroundColor:'#ffffff'}} children={<Clear />} />
+            <Button align="right" size='small' onClick={this.toggleModal} children={<Edit />} />
+            <Button align="right" size='small' onClick={this.props.onDelete} children={<Clear />} />
           </Grid>
         </Grid>
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.editing}
+          onClose={this.handleClose}
+        >
+          <div className={classes.paper}>
+            <Typography variant="title" id="modal-title">
+              New value
+            </Typography>
+            <TextField
+              id="value"
+              label={ui.enter_your_name}
+              margin="normal"
+              onChange={this.valueChangeHandler}
+              value={this.state.value}
+              item
+            />
+          </div>
+        </Modal>
       </Paper>
     )
   }
