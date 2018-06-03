@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Typography, Grid, Button, Slide, Collapse } from '@material-ui/core/index'
+import { Typography, Grid, Button, Slide, Collapse, Paper } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import { withi18n } from '../lib/i18n'
 import locations from '../lib/locations'
@@ -7,11 +7,12 @@ import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import ToggleDeleteButton from './toggle-delete-button'
 
-const styles = theme => {
+const styles = theme => ({
   paper: {
-    backgroundColor: '#ffffff'
+    backgroundColor: '#F0F0F0',
+    width: '100%'
   }
-}
+})
 @withi18n
 @withStyles(styles)
 class Game extends Component {
@@ -19,6 +20,10 @@ class Game extends Component {
   componentWillMount() {
     this.state.timer = setInterval(() => {
       let secondsLeft = this.props.room.startTime / 1000 + 60 * 10 - Date.now() / 1000
+      if(secondsLeft<=0){
+        clearInterval(this.state.timer)
+        this.state.timer = null
+      }
       this.setState({ secondsLeft })
     }, 1000)
   }
@@ -56,7 +61,8 @@ class Game extends Component {
             </Typography>
           </Grid>
           <Grid item>
-            <Collapse in={!hide} collapsedHeight="30px">
+          <Paper elevation={4}>
+            <Collapse in={!hide} collapsedHeight="40px">
               <Button
                 variant="raised"
                 elevation={4}
@@ -87,10 +93,9 @@ class Game extends Component {
                     </Typography>
                   </Grid>
                 </Grid>
-
-
               </Button>
             </Collapse>
+          </Paper>
           </Grid>
           <Grid item>
             <Typography variant="display1" item>
