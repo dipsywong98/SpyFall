@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { Typography, Grid, Button, Slide } from '@material-ui/core/index'
 import { database, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
 import { withi18n } from '../lib/i18n'
 import locations from '../lib/locations'
@@ -77,12 +78,15 @@ class Room extends Component {
     const { room, loading } = this.state
     return (
       <div>
-        <h2>{ui.room}: {roomName}</h2>
+        <Typography variant="display1">{ui.room}: {roomName}</Typography>
         {(loading ? <Loading /> : null)}
         {JSON.stringify(room)}
+        <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
+          <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
+        </Slide>
         {/* {room && Object.keys(room.players).join()} */}
         {(room && room.playing
-          ? <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
+          ? (null)
           : <button onClick={this.startGame}>{ui.start_game}</button>
         )}
         <p>

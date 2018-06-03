@@ -1,6 +1,6 @@
 import { Component } from 'react'
-import { Grid, TextField, Typography, Button } from '@material-ui/core/index'
-import { withStyles } from '@material-ui/core/styles';
+import { Grid, TextField, Typography, Button, Slide } from '@material-ui/core/index'
+import { withStyles } from '@material-ui/core/styles'
 import LangPicker from './lang-picker'
 import { withi18n } from '../lib/i18n'
 import config from '../../config'
@@ -13,6 +13,16 @@ const styles = theme => ({
     textAlign: 'center',
     paddingTop: theme.spacing.unit * 20,
   },
+  relative: {
+    position: 'relative'
+  },
+  absolute: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  }
 });
 
 @withi18n
@@ -81,13 +91,11 @@ class Home extends Component {
     const { name, roomName, loading, joinedRoom } = this.state
     return (
       <div className={classes.root}>
-        <Typography variant="display1">{ui.welcome_to_spyfall}</Typography>
-        {(loading ? <Loading /> : null)}
-
-        {(joinedRoom
-          ? <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} />
-          : (
+        {(loading ? <Grid item children={<Loading />} /> : null)}
+        <Grid item className={classes.relative}>
+          <Slide direction="right" in={!joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
+              <Typography variant="display1">{ui.welcome_to_spyfall}</Typography>
               <Grid spacing={16} container justify="center">
                 <Grid item>
                   <TextField
@@ -131,8 +139,13 @@ class Home extends Component {
                 </Grid>
               </Grid>
             </div>
-          ))}
-        <LangPicker />
+          </Slide>
+          <Slide direction="left" in={joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
+            <div>
+              <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} />
+            </div>
+          </Slide>
+        </Grid>
       </div>
     )
   }

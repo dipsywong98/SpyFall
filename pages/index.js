@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import App from '../src/components/app'
 import Home from '../src/components/home'
-import { withStyles } from '@material-ui/core/styles';
-import withRoot from '../src/withRoot';
+import { withStyles } from '@material-ui/core/styles'
+import withRoot from '../src/withRoot'
 
 const styles = theme => ({
   root: {
