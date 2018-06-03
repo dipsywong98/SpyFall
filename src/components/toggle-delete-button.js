@@ -12,7 +12,7 @@ export default class ToggleDeleteButton extends Component {
     const {deleted} = this.state
     return (
       <Button
-        variant={(deleted?'outlined':'raised')}
+        variant='outlined'
         onClick={this.onClick}
       >
         {(

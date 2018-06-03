@@ -25,7 +25,7 @@ export default {
     "your_role": "Your role",
     "players": "Players",
     "player": "Player",
-    "first": "1<span>st</span>",
+    "first_player": "First Player",
     "location_reference": "Location Reference",
     "end_game": "End Game",
     "enter_your_name": "Enter your name",
@@ -34,6 +34,7 @@ export default {
     "enter_an_access_code": "Enter an access code",
     "invalid_access_code": "Sorry, no game was found with the access code you provided!",
     "join": "Join",
+    "time_remained": "Time Remained",
     "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>Spyfall</a> designed by Alexandr Ushan, published by <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World</a>"
   },
   "locations": {

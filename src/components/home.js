@@ -11,7 +11,16 @@ import Loading from './svg/loading'
 const styles = theme => ({
   root: {
     textAlign: 'center',
-    paddingTop: theme.spacing.unit * 20,
+
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    height: '30vh',
+    textAlign: 'center'
+
+  },
+  placeHolder: {
+    marginTop: theme.spacing.unit * 16,
   },
   relative: {
     position: 'relative'
@@ -91,11 +100,12 @@ class Home extends Component {
     const { name, roomName, loading, joinedRoom } = this.state
     return (
       <div className={classes.root}>
+        {/* <div className={classes.placeHolder} children='hi' only={['md', 'lg', 'xl']} /> */}
         {(loading ? <Grid item children={<Loading />} /> : null)}
         <Grid item className={classes.relative}>
           <Slide direction="right" in={!joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
-              <Typography variant="display1">{ui.welcome_to_spyfall}</Typography>
+              <Typography variant="display3">{ui.welcome_to_spyfall}</Typography>
               <Grid spacing={16} container justify="center">
                 <Grid item>
                   <TextField
@@ -138,11 +148,17 @@ class Home extends Component {
                   </Button>
                 </Grid>
               </Grid>
+              <Grid style={{ marginTop: '32px' }}>
+                <LangPicker />
+              </Grid>
             </div>
           </Slide>
           <Slide direction="left" in={joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
               <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} />
+              <Grid style={{ marginTop: '32px' }}>
+                <LangPicker />
+              </Grid>
             </div>
           </Slide>
         </Grid>

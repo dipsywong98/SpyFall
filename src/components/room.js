@@ -1,13 +1,27 @@
 import { Component } from 'react'
 import { Typography, Grid, Button, Slide } from '@material-ui/core/index'
+import { withStyles } from '@material-ui/core/styles'
 import { database, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
 import { withi18n } from '../lib/i18n'
 import locations from '../lib/locations'
 import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import Game from './game'
+import ToggleDeleteButton from './toggle-delete-button'
+
+const styles = theme => ({
+  center: {
+    left: 0,
+    right: 0,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'center',
+    flexGrow: 1,
+  }
+})
 
 @withi18n
+@withStyles(styles)
 class Room extends Component {
   state = {
     room: null,
@@ -70,30 +84,53 @@ class Room extends Component {
 
   endGame = async () => {
     const { roomName } = this.props
-    dbupdate(`rooms/${roomName}`, { location: -1, playing: false, startTime: null })
+    dbupdate(`rooms/${roomName}`, { playing: false, startTime: null })
   }
 
   render() {
-    const { i18n, i18n: { ui }, leaveRoom, name, roomName } = this.props
+    const { i18n, i18n: { ui }, leaveRoom, name, roomName, classes } = this.props
     const { room, loading } = this.state
     return (
-      <div>
-        <Typography variant="display1">{ui.room}: {roomName}</Typography>
+      <Grid direction='column' spacing={16} container justify='center'>
+        <Grid item>
+          <Typography variant="display3">{ui.room}: {roomName}</Typography>
+        </Grid>
         {(loading ? <Loading /> : null)}
-        {JSON.stringify(room)}
+        {/* {JSON.stringify(room)} */}
+        <Grid item>
+          <Grid container spacing={8} justify='center'>
+
+            {room && room.players && Object.keys(room.players).map(player => (
+              <Grid item>
+                <ToggleDeleteButton>
+                  {player}
+                </ToggleDeleteButton>
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+        <Grid item>
         <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
           <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
         </Slide>
+        </Grid>
         {/* {room && Object.keys(room.players).join()} */}
         {(room && room.playing
           ? (null)
-          : <button onClick={this.startGame}>{ui.start_game}</button>
+          : (<Grid item>
+            <Grid container spacing={8} justify='center'>
+              <Grid item>
+                <Button color='secondary' variant='raised' onClick={leaveRoom}>{ui.leave_room}</Button>
+              </Grid>
+              <Grid item>
+                <Button color='primary' variant='raised' onClick={this.startGame}>{ui.start_game}</Button>
+              </Grid>
+            </Grid>
+          </Grid>)
         )}
-        <p>
-          <button onClick={leaveRoom}>{ui.leave_room}</button>
-        </p>
 
-      </div>
+
+      </Grid>
     )
   }
 }

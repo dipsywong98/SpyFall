@@ -25,7 +25,7 @@ export default {
     "your_role": "你的角色",
     "players": "玩家",
     "players": "玩家",
-    "first": "首家",
+    "first_player": "首家",
     "location_reference": "地點參考",
     "end_game": "結束遊戲",
     "enter_your_name": "輸入你的名字",
@@ -34,6 +34,7 @@ export default {
     "enter_an_access_code": "輸入通行號碼",
     "invalid_access_code": "無效的通行號碼",
     "join": "加入",
+    "time_remained": "剩餘時間",
     "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>《Spyfall間諜危機》</a> 由Alexandr Ushan設計， <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World公司出版</a>。"
   },
   "locations": {
