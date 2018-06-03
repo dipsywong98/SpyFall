@@ -14,6 +14,7 @@ export default class ToggleDeleteButton extends Component {
       <Button
         variant='outlined'
         onClick={this.onClick}
+        style={{color:(deleted?'#B0B0B0':'#484848')}}
       >
         {(
           deleted
