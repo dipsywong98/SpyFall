@@ -17,6 +17,7 @@
     "jss": "latest",
     "material-ui": "^0.20.1",
     "next": "^6.0.3",
+    "node-fetch": "^2.1.2",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
