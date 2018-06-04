@@ -13,13 +13,15 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "latest",
+    "firebase": "^5.0.4",
     "jss": "latest",
+    "material-ui": "^0.20.1",
     "next": "^6.0.3",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-ga": "^2.5.3",
     "react-jss": "latest",
-    "firebase": "^5.0.4",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0"
   },
