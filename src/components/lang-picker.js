@@ -5,6 +5,7 @@ import { withStyles } from '@material-ui/core/styles'
 import { setLang } from '../lib/store'
 import { langList } from '../lib/i18n'
 import Language from './svg/language'
+import { getCookie, setCookie } from '../lib/cookie'
 
 const styles = theme => ({
   fab: {
@@ -20,8 +21,11 @@ class Picker extends Component {
     anchorEl: null,
   }
 
-  onChange = ({ target: { value } }) => {
-    this.props.setLang(value)
+  componentDidMount() {
+    const lang = getCookie('lang')
+    if (lang && lang !== 'en') {
+      this.props.setLang(lang)
+    }
   }
 
   handleClick = event => {
@@ -31,6 +35,7 @@ class Picker extends Component {
   handleClose = (value = null) => {
     this.setState({ anchorEl: null })
     if (!!value) {
+      setCookie('lang', value, 99)
       this.props.setLang(value)
     }
   };
@@ -48,10 +53,10 @@ class Picker extends Component {
           id="simple-menu"
           anchorEl={anchorEl}
           open={Boolean(anchorEl)}
-          onClose={()=>this.handleClose(null)}
+          onClose={() => this.handleClose(null)}
         >
           {
-            Object.keys(langList).map(lang =>(
+            Object.keys(langList).map(lang => (
               <MenuItem onClick={() => this.handleClose(lang)}>
                 {langList[lang].name}
               </MenuItem>))
