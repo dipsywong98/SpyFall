@@ -90,6 +90,7 @@ class Room extends Component {
   }
 
   onChangeName = async (oldName, newName) => {
+    if(newName === oldName) return
     this.setState({ loading: true })
     const { roomName, i18n: { ui } } = this.props
     let s = await dbonce(`rooms/${roomName}/players/${newName}`)
