@@ -7,6 +7,7 @@ import config from '../../config'
 import { database, dbonce, dbset, dbupdate } from '../lib/init-firebase'
 import Room from './room'
 import Loading from './svg/loading'
+import LastUpdate from './last-update'
 
 const styles = theme => ({
   root: {
@@ -152,16 +153,22 @@ class Home extends Component {
                   </Button>
                 </Grid>
               </Grid>
-              <Grid style={{ marginTop: '32px' }}>
+              <Grid style={{ marginTop: '32px' }} item>
                 <LangPicker />
+              </Grid>
+              <Grid  style={{ marginTop: '32px' }} item>
+                <LastUpdate repo='dipsywong98/SpyFall' />
               </Grid>
             </div>
           </Slide>
           <Slide direction="left" in={joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
               <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} changeName={this.changeName} />
-              <Grid style={{ marginTop: '32px' }}>
+              <Grid style={{ marginTop: '32px' }} item>
                 <LangPicker />
+              </Grid>
+              <Grid style={{ marginTop: '32px' }} item>
+                <LastUpdate repo='dipsywong98/SpyFall' />
               </Grid>
             </div>
           </Slide>
