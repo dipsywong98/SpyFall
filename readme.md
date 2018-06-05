@@ -1,37 +1,18 @@
 # SpyFall
+Live on [https://spy4.herokuapp.com/](https://spy4.herokuapp.com/)
 
+This is just copying from the game by [Hobby World](http://international.hobbyworld.ru/) and other related repos
+(https://github.com/scooter3/spyfall/, https://github.com/adrianocola/spyfall), and made with nextjs react framework with redux using firebase as storage. (In short I am just practising my programming skill and learn new stuff when I am procrastinating my Robotics project) I hope my code would look better but in fact it is horrible. Currently this only have Chinese and English version, maybe later I would ~~futhur copy from other's repo, thanks MIT Lisence~~
+
+### Run
+**HEY DONT RUIN MY FIREBASE**, change it in `config.js`
+```sh
+git clone https://github.com/dipsywong98/SpyFall.git
+cd SpyFall
+npm i
+npm run dev
+#app on localhost:3000
 ```
-firebase:{
-  rooms:{
-    $id:{
-      playing
-      location (-1):
-      $playername: role_id (-1..location_length): -1 as spy, other normal
-    }
-  }
-}
-
-join room(id):
-  update room ({name:-1}).then(
-    redux update
-    listen to room's location: !prep_room => block start key, loading, listen to my role change => enter
-  )
-
-start game:
-  random room
-  update room location
-  get room players
-  assign roles=>update
-
-
-```
-
-dependencies:
-- next
-- react
-- redux
-- firebase
 
 references:
 https://codepen.io/aurer/pen/jEGbA
-https://github.com/scooter3/spyfall/
