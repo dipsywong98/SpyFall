@@ -8,6 +8,14 @@ import { database, dbonce, dbset, dbupdate } from '../lib/init-firebase'
 import Room from './room'
 import Loading from './svg/loading'
 import LastUpdate from './last-update'
+import after24hours from '../lib/after24hours'
+
+const getInitialRoom = name => ({
+  location: -1,
+  players: { [name]: -1 },
+  playing: false,
+  expire: after24hours()
+})
 
 const styles = theme => ({
   root: {
@@ -70,7 +78,7 @@ class Home extends Component {
       this.setState({ loading: false })
     } else {
       console.log('creating room')
-      await dbset(`/rooms/${roomName}`, { location: -1, players: { [name]: -1 }, playing: false })
+      await dbset(`/rooms/${roomName}`, getInitialRoom(name))
       this.setState({ loading: false, joinedRoom: true })
     }
   }
@@ -91,6 +99,7 @@ class Home extends Component {
       this.setState({ loading: false })
     } else {
       await dbset(`/rooms/${roomName}/players/${name}`, -1)
+      await dbset(`/rooms/${roomName}/expire`, after24hours())
       this.setState({ loading: false, joinedRoom: true })
     }
   }

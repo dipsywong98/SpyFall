@@ -9,6 +9,7 @@ import Loading from './svg/loading'
 import Game from './game'
 import ToggleDeleteButton from './toggle-delete-button'
 import NameTag from './name-tag'
+import after24hours from '../lib/after24hours'
 
 const styles = theme => ({
   center: {
@@ -62,7 +63,8 @@ class Room extends Component {
       location: locations[locationId].name,
       playing: true,
       startTime: Date.now(),
-      firstPlayer
+      firstPlayer,
+      expire: after24hours()
     })
     console.log(locations[locationId].roles)
     let roles = Array(locations[locationId].roles).fill('').map((_, k) => k)
