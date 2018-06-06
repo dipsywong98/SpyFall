@@ -32,22 +32,28 @@ class ChatRoom extends Component {
   state = {
     messages: [],
     message: '',
+    cursor: 0,
     collapse: true
   }
   componentWillMount() {
     const { channel } = this.props
-    dbon(`${channel}/chat`, 'value', value => this.setState({ messages: value || [] }))
+    dbon(`${channel}/chat`, 'value', value => this.setState({
+      messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
+      cursor: value && value.cursor || 0
+    }))
   }
   handleInput = ({ target: { value } }) => {
     this.setState({ message: value })
   }
   handleSend = () => {
     const { channel, name } = this.props
-    let { messages, message } = this.state
-    messages.push({ time: Date.now(), name, message })
-    this.setState({ messages, message: '' })
+    let { messages, message, cursor } = this.state
+    const newMessage = { time: Date.now(), name, message }
+    this.setState({ message: '' })
     console.log(channel, messages)
-    dbupdate(`${channel}/chat`, messages)
+    dbset(`${channel}/chat/messages/${cursor++%50}`, newMessage)
+    dbset(`${channel}/chat/cursor`,cursor)
+    this.setState({cursor})
   }
   render() {
     const { classes, name } = this.props
