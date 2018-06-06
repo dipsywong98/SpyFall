@@ -15,7 +15,7 @@ const styles = theme => ({
     zIndex: '99'
   },
   inner: {
-    padding: theme.spacing.unit,
+    padding: `0 ${theme.spacing.unit}`,
     border: `solid 2px ${theme.palette.primary.light}`,
   },
   messageContainer: {
@@ -44,13 +44,13 @@ class ChatRoom extends Component {
   handleSend = () => {
     const { channel, name } = this.props
     let { messages, message } = this.state
-    messages.push({ time: Date.now(), name: name || 'anonymous', message })
+    messages.push({ time: Date.now(), name, message })
     this.setState({ messages, message: '' })
     console.log(channel, messages)
     dbupdate(`${channel}/chat`, messages)
   }
   render() {
-    const { classes } = this.props
+    const { classes, name } = this.props
     const chatRoomTitle = this.props.chatRoomTitle || 'chatroom'
     const { message, messages, collapse } = this.state
     return (
@@ -67,7 +67,7 @@ class ChatRoom extends Component {
                 <Grid item className={classes.messageContainer}>
                   <List>
                     {messages.map(({ name, message, time }) => (
-                      <Chip name={name} message={message} time={time}/>
+                      <Chip name={name} message={message} time={time} me={name === this.props.name}/>
                     ))}
                   </List>
                 </Grid>
@@ -95,6 +95,10 @@ class ChatRoom extends Component {
 
 ChatRoom.propTypes = {
   channel: PropTypes.string.isRequired
+}
+
+ChatRoom.defaultProps = {
+  name: 'anonymous'
 }
 
 export default ChatRoom
