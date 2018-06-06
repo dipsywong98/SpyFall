@@ -13,9 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "@material-ui/core": "latest",
+    "color-hash": "^1.0.3",
     "firebase": "^5.0.4",
     "jss": "latest",
     "material-ui": "^0.20.1",
+    "moment": "^2.22.2",
     "next": "^6.0.3",
     "node-fetch": "^2.1.2",
     "prop-types": "latest",

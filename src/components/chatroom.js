@@ -2,8 +2,9 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, List, ListItem, ListItemText, Input, Paper, Button, Collapse, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { dbon, dbupdate } from '../lib/init-firebase'
+import { dbon, dbupdate, dbset } from '../lib/init-firebase'
 import Send from './svg/send'
+import Chip from './chatroom-chip'
 
 const styles = theme => ({
   frame: {
@@ -16,10 +17,10 @@ const styles = theme => ({
   inner: {
     padding: theme.spacing.unit,
     border: `solid 2px ${theme.palette.primary.light}`,
-    height: '350px'
   },
   messageContainer: {
-
+    height: '350px',
+    overflowY: 'scroll'
   },
   inputWrap: {
     borderTop: ''
@@ -65,10 +66,8 @@ class ChatRoom extends Component {
               <Grid container direction='column' className={classes.inner} justify='flex-end'>
                 <Grid item className={classes.messageContainer}>
                   <List>
-                    {messages.map(({ name, message }) => (
-                      <ListItem>
-                        <ListItemText children={name + ': '} /><ListItemText children={message} />
-                      </ListItem>
+                    {messages.map(({ name, message, time }) => (
+                      <Chip name={name} message={message} time={time}/>
                     ))}
                   </List>
                 </Grid>
