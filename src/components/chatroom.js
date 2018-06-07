@@ -33,7 +33,9 @@ class ChatRoom extends Component {
     messages: [],
     message: '',
     cursor: 0,
-    collapse: true
+    collapse: true,
+    oldIsr: null,
+    focus: false
   }
   componentWillMount() {
     const { channel } = this.props
@@ -41,6 +43,14 @@ class ChatRoom extends Component {
       messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
       cursor: value && value.cursor || 0
     }))
+    this.state.oldIsr = window.onkeyup
+    window.onkeyup = e => {
+      const key = e.keyCode ? e.keyCode : e.which
+      if(key===13) this.state.focus && this.handleSend()
+    }
+  }
+  componentWillUnmount() {
+    window.onkeyup = this.state.oldIsr
   }
   handleInput = ({ target: { value } }) => {
     this.setState({ message: value })
@@ -48,9 +58,9 @@ class ChatRoom extends Component {
   handleSend = () => {
     const { channel, name } = this.props
     let { messages, message, cursor } = this.state
+    if(message === '') return
     const newMessage = { time: Date.now(), name, message }
     this.setState({ message: '' })
-    console.log(channel, messages)
     dbset(`${channel}/chat/messages/${cursor++%50}`, newMessage)
     dbset(`${channel}/chat/cursor`,cursor)
     this.setState({cursor})
@@ -68,7 +78,7 @@ class ChatRoom extends Component {
             </Button>
           </Grid>
           <Grid item>
-            <Collapse in={collapse}>
+            <Collapse in={!collapse}>
               <Grid container direction='column' className={classes.inner} justify='flex-end'>
                 <Grid item className={classes.messageContainer}>
                   <List>
@@ -84,6 +94,8 @@ class ChatRoom extends Component {
                       'aria-label': 'Description',
                     }}
                     onChange={this.handleInput}
+                    onFocus={()=>this.setState({focus: true})}
+                    onBlur={()=>this.setState({focus: false})}
                     value={message}
                   />
                   <IconButton color='primary' onClick={this.handleSend}>

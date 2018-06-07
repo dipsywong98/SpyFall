@@ -23,17 +23,19 @@ const styles = theme => ({
 class NameTag extends Component {
   state = {
     editing: false,
-    value: this.props.value
+    value: this.props.value,
+    oldKeyIsr: null
   }
   valueChangeHandler = ({ target: { value } }) => {
     this.setState({ value })
   }
   handleClose = () => {
     this.setState({ editing: false })
-    window.onkeyup = null
+    window.onkeyup = this.state.oldKeyIsr
     if(this.props.onChange)this.props.onChange(this.state.value)
   }
   toggleModal = () => {
+    this.state.oldKeyIsr = window.onkeyup
     window.onkeyup = e => {
       const key = e.keyCode ? e.keyCode : e.which
       console.log(key)
