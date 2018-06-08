@@ -29,7 +29,7 @@ const styles = theme => ({
 })
 
 const Chip = ({ name, message, time, classes, me = false }) => {
-  let colorHash = new ColorHash(), color = colorHash.hex(name)
+  let colorHash = new ColorHash(), color = colorHash.hex(btoa(name))
   return (
     <ListItem className={(me?classes.chipMe:classes.chip)}>
       <Grid direction='column' alignItems='stretch' container>

@@ -10,6 +10,7 @@ import Game from './game'
 import ToggleDeleteButton from './toggle-delete-button'
 import NameTag from './name-tag'
 import after24hours from '../lib/after24hours'
+import ChatRoom from './chatroom'
 
 const styles = theme => ({
   center: {
@@ -164,8 +165,6 @@ class Room extends Component {
               </Grid>
             </Grid>)
         )}
-
-
       </Grid>
     )
   }

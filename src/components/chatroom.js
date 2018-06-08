@@ -2,7 +2,7 @@ import { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Grid, List, ListItem, ListItemText, Input, Paper, Button, Collapse, IconButton } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { dbon, dbupdate, dbset } from '../lib/init-firebase'
+import { dbon, dbupdate, dbset, dboff } from '../lib/init-firebase'
 import Send from './svg/send'
 import Chip from './chatroom-chip'
 
@@ -39,7 +39,8 @@ class ChatRoom extends Component {
   }
   componentWillMount() {
     const { channel } = this.props
-    dbon(`${channel}/chat`, 'value', value => this.setState({
+    console.log(`subsribe to ${channel}`)
+    dbon(`rooms/${channel}/chat`, 'value', value => this.setState({
       messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
       cursor: value && value.cursor || 0
     }))
@@ -51,7 +52,17 @@ class ChatRoom extends Component {
   }
   componentWillUnmount() {
     window.onkeyup = this.state.oldIsr
+    dboff(`rooms/${this.props.channel}/chat`, 'value')
   }
+  componentWillReceiveProps(nextProps) {
+    dboff(`rooms/${this.props.channel}/chat`, 'value')
+    console.log(`unsubsribe to ${this.props.channel} and subscribe to ${nextProps.channel}`)
+    dbon(`rooms/${nextProps.channel}/chat`, 'value', value => this.setState({
+      messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
+      cursor: value && value.cursor || 0
+    }))
+  }
+  
   handleInput = ({ target: { value } }) => {
     this.setState({ message: value })
   }
@@ -61,8 +72,8 @@ class ChatRoom extends Component {
     if(message === '') return
     const newMessage = { time: Date.now(), name, message }
     this.setState({ message: '' })
-    dbset(`${channel}/chat/messages/${cursor++%50}`, newMessage)
-    dbset(`${channel}/chat/cursor`,cursor)
+    dbset(`rooms/${channel}/chat/messages/${cursor++%50}`, newMessage)
+    dbset(`rooms/${channel}/chat/cursor`,cursor)
     this.setState({cursor})
   }
   render() {
@@ -116,7 +127,8 @@ ChatRoom.propTypes = {
 }
 
 ChatRoom.defaultProps = {
-  name: 'anonymous'
+  name: 'guest '+Math.floor(Math.random()*1000),
+  channel: '__global__'
 }
 
 export default ChatRoom

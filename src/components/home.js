@@ -9,6 +9,8 @@ import Room from './room'
 import Loading from './svg/loading'
 import LastUpdate from './last-update'
 import after24hours from '../lib/after24hours'
+import ChatRoom from './chatroom'
+import randInt from '../lib/rand-int'
 
 const getInitialRoom = name => ({
   location: -1,
@@ -52,7 +54,8 @@ class Home extends Component {
       name: '',
       roomName: null,
       loading: false,
-      joinedRoom: false
+      joinedRoom: false,
+      id: randInt(1,1001)
     }
   }
 
@@ -111,11 +114,12 @@ class Home extends Component {
 
   render() {
     const { i18n: { ui }, classes } = this.props
-    const { name, roomName, loading, joinedRoom } = this.state
+    const { name, roomName, loading, joinedRoom, id } = this.state
     return (
       <div className={classes.root}>
         {/* <div className={classes.placeHolder} children='hi' only={['md', 'lg', 'xl']} /> */}
         {(loading ? <Grid item children={<Loading />} /> : null)}
+        <ChatRoom channel={(joinedRoom?roomName:'__global__')} name={(joinedRoom?name:`Guest ${id}`)} />
         <Grid item className={classes.relative}>
           <Slide direction="right" in={!joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
