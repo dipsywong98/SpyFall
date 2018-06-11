@@ -36,10 +36,10 @@ export default {
     "join": "Join",
     "time_remained": "Time Remained",
     "you_have_been_kicked_out": "you have been kicked out",
-    "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>Spyfall</a> designed by Alexandr Ushan, published by <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World</a>"
+    "footer": "<a href='http://international.hobbyworld.ru/catalog/25_spyfall/' target='_blank'>Spyfall</a> designed by Alexandr Ushan, published by <a href='http://international.hobbyworld.ru/' target='_blank'>Hobby World</a>",
+    "spy":"Spy",
   },
   "locations": {
-    "spy":"Spy",
     "airplane": {
       "name": "Airplane",
       "roles": [

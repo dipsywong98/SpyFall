@@ -3,7 +3,7 @@ import { Typography, Grid, Button, Slide } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import { database, dbonce, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
 import { withi18n } from '../lib/i18n'
-import locations from '../lib/locations'
+// import locations from '../lib/locations'
 import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import Game from './game'
@@ -56,19 +56,21 @@ class Room extends Component {
 
   startGame = () => {
     this.setState({ loading: true })
-    const { roomName } = this.props
+    const { roomName, i18n } = this.props
+    const locations = Object.keys(i18n.locations)
     let { room: { players } } = this.state
     const locationId = randInt(0, locations.length)
     const firstPlayer = Object.keys(players)[randInt(0, Object.keys(players).length)]
+    const location = locations[locationId]
     dbupdate(`rooms/${roomName}`, {
-      location: locations[locationId].name,
+      location,
       playing: true,
       startTime: Date.now(),
       firstPlayer,
       expire: after24hours()
     })
-    console.log(locations[locationId].roles)
-    let roles = Array(locations[locationId].roles).fill('').map((_, k) => k)
+    console.log(i18n.locations[location].roles)
+    let roles = Array(Object.keys(i18n.locations[location].roles).length).fill('').map((_, k) => k)
     const defaultRole = roles[roles.length - 1]
     let notAssigned = Object.keys(players)
     while (notAssigned.length > 1) {

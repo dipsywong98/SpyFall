@@ -2,7 +2,7 @@ import { Component } from 'react'
 import { Typography, Grid, Button, Slide, Collapse, Paper } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import { withi18n } from '../lib/i18n'
-import locations from '../lib/locations'
+// import locations from '../lib/locations'
 import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import ToggleDeleteButton from './toggle-delete-button'
@@ -35,7 +35,7 @@ class Game extends Component {
     const { i18n, i18n: { ui }, room, endGame, classes } = this.props
     const { hide, secondsLeft } = this.state
     let role
-    if (room.players[this.props.name] === 'spy') role = i18n.locations['spy']
+    if (room.players[this.props.name] === 'spy') role = ui.spy
     else if (room.location && i18n.locations[room.location]) role = i18n.locations[room.location].roles[room.players[this.props.name]]
     return (
       <div>
@@ -122,7 +122,7 @@ class Game extends Component {
             <Grid container justify='center'>
               <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
                 <Grid container justify='center' spacing={8}>
-                  {locations.map(({ name }) => (<Grid item> <ToggleDeleteButton children={i18n.locations[name].name} /></Grid>))}
+                  {Object.values(i18n.locations).map(({ name }) => (<Grid item> <ToggleDeleteButton children={name} /></Grid>))}
                 </Grid>
               </Grid>
             </Grid>
