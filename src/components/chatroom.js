@@ -8,7 +8,7 @@ import Chip from './chatroom-chip'
 
 const styles = theme => ({
   frame: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: '0px',
     right: theme.spacing.unit * 4,
     width: '250px',
