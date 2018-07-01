@@ -124,8 +124,8 @@ class Home extends Component {
           <Slide direction="right" in={!joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
               <Typography variant="display3">{ui.welcome_to_spyfall}</Typography>
-              <Grid spacing={16} container justify="center">
-                <Grid item>
+              <Grid container justify="center">
+                <Grid item style={{margin:"8px"}}>
                   <TextField
                     id="name"
                     label={ui.enter_your_name}
@@ -135,7 +135,7 @@ class Home extends Component {
                     item
                   />
                 </Grid>
-                <Grid item>
+                <Grid item style={{margin:"8px"}}>
                   <TextField
                     id="room_name"
                     label={ui.enter_room_name}
@@ -146,8 +146,8 @@ class Home extends Component {
                   />
                 </Grid>
               </Grid>
-              <Grid spacing={16} container justify="center">
-                <Grid item>
+              <Grid container justify="center">
+                <Grid item style={{margin:"8px"}}>
                   <Button
                     variant="raised"
                     color="secondary"
@@ -156,7 +156,7 @@ class Home extends Component {
                     {ui.new_room}
                   </Button>
                 </Grid>
-                <Grid item>
+                <Grid item style={{margin:"8px"}}>
                   <Button
                     variant="raised"
                     color="primary"
