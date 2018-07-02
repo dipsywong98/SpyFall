@@ -559,6 +559,21 @@ export default {
         "Waiter"
       ]
     },
+    "robotics_laboratory":{
+      "name": "Robotics Laboratory",
+      "roles": [
+        "Computer Scientist",
+        "Hardware Engineer",
+        "Machanical Engineer",
+        "Hentai Guy",
+        "Peanut Eating Guy",
+        "Boy God",
+        "Robot",
+        "Assistant",
+        "Manager",
+        "MMA Figher"
+      ]
+    },
     "library": {
       "name": "Library",
       "roles": [
@@ -572,6 +587,21 @@ export default {
         "Loudmouth",
         "Book Fanatic",
         "Nerd"
+      ]
+    },
+    "mall":{
+      "name": "Mall",
+      "roles": [
+        "Costomers",
+        "Janitor",
+        "Shopkeeper",
+        "Security Guard",
+        "Pregnant",
+        "Naughty Children",
+        "Tourist",
+        "Salesman",
+        "Manager",
+        "Receptionist"
       ]
     },
     "night_club": {
