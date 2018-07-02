@@ -125,14 +125,14 @@ class Room extends Component {
       leaveRoom()
     }
     return (
-      <Grid direction='column' spacing={16} container justify='center'>
-        <Grid item>
+      <Grid direction='column' container justify='center'>
+        <Grid item style={{margin:"8px"}}>
           <Typography variant="display3">{ui.room}: {roomName}</Typography>
         </Grid>
         {(loading ? <Loading /> : null)}
         {/* {JSON.stringify(room)} */}
 
-        <Grid item>
+        <Grid item style={{margin:"8px"}}>
           <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
             <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
           </Slide>
@@ -141,7 +141,7 @@ class Room extends Component {
         {(room && room.playing ? null : <Grid item>
           <Grid container justify='center'>
             <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
-              <Grid container justify='center' spacing={8} direction='column' alignItems='center'>
+              <Grid container justify='center' direction='column' alignItems='center'>
                 {room && room.players && Object.keys(room.players).map(player => (
                   <Grid item style={{ textAlign: 'center' }}>
                     {(player === name
@@ -157,11 +157,11 @@ class Room extends Component {
           ? (null)
           : (
             <Grid item>
-              <Grid container spacing={8} justify='center'>
-                <Grid item>
+              <Grid container justify='center'>
+                <Grid item style={{margin:"8px"}}>
                   <Button color='secondary' variant='raised' onClick={leaveRoom}>{ui.leave_room}</Button>
                 </Grid>
-                <Grid item>
+                <Grid item style={{margin:"8px"}}>
                   <Button color='primary' variant='raised' onClick={this.startGame}>{ui.start_game}</Button>
                 </Grid>
               </Grid>
