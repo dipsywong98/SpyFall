@@ -2,7 +2,7 @@
 Live on [https://spy4.herokuapp.com/](https://spy4.herokuapp.com/)
 
 This is just copying from the game by [Hobby World](http://international.hobbyworld.ru/) and other related repos
-(https://github.com/scooter3/spyfall/, https://github.com/adrianocola/spyfall), and made with nextjs react framework with redux using firebase as storage. (In short I am just practising my programming skill and learn new stuff when I am procrastinating my Robotics project) I hope my code would look better but in fact it is horrible. Currently this only have Chinese and English version, maybe later I would ~~futhur copy from other's repo, thanks MIT Lisence~~
+(https://github.com/scooter3/spyfall/, https://github.com/adrianocola/spyfall), and made with nextjs react framework with redux using firebase as storage. (In short I am just practising my programming skill and learn new stuff when I am procrastinating my Robotics project) I hope my code would look better but in fact it is horrible. Currently this only have Chinese and English version, maybe later I would ~~futhur copy from other's repo, thanks MIT Lience~~
 
 ### Run
 **HEY DONT RUIN MY FIREBASE**, change it in `config.js`
