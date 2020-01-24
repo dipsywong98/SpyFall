@@ -36,6 +36,7 @@ class ChatRoom extends Component {
     oldIsr: null,
     focus: false
   }
+
   componentWillMount() {
     const { channel } = this.props
     console.log(`subsribe to ${channel}`)
@@ -46,13 +47,15 @@ class ChatRoom extends Component {
     this.setState({ oldIsr: window.onkeyup })
     window.onkeyup = e => {
       const key = e.keyCode ? e.keyCode : e.which
-      if(key===13) this.state.focus && this.handleSend()
+      if (key === 13) this.state.focus && this.handleSend()
     }
   }
+
   componentWillUnmount() {
     window.onkeyup = this.state.oldIsr
     dboff(`rooms/${this.props.channel}/chat`, 'value')
   }
+
   componentWillReceiveProps(nextProps) {
     dboff(`rooms/${this.props.channel}/chat`, 'value')
     console.log(`unsubsribe to ${this.props.channel} and subscribe to ${nextProps.channel}`)
@@ -61,20 +64,21 @@ class ChatRoom extends Component {
       cursor: (value && value.cursor) || 0
     }))
   }
-  
+
   handleInput = ({ target: { value } }) => {
     this.setState({ message: value })
   }
   handleSend = () => {
     const { channel, name } = this.props
     let { message, cursor } = this.state
-    if(message === '') return
+    if (message === '') return
     const newMessage = { time: Date.now(), name, message }
     this.setState({ message: '' })
-    dbset(`rooms/${channel}/chat/messages/${cursor++%50}`, newMessage)
-    dbset(`rooms/${channel}/chat/cursor`,cursor)
-    this.setState({cursor})
+    dbset(`rooms/${channel}/chat/messages/${cursor++ % 50}`, newMessage)
+    dbset(`rooms/${channel}/chat/cursor`, cursor)
+    this.setState({ cursor })
   }
+
   render() {
     const { classes } = this.props
     const chatRoomTitle = this.props.chatRoomTitle || 'chatroom'
@@ -83,7 +87,8 @@ class ChatRoom extends Component {
       <Grid container direction='column' className={classes.frame}>
         <Paper elevation={16}>
           <Grid item>
-            <Button onClick={() => this.setState({ collapse: !collapse })} variant='raised' color='primary' style={{ width: '100%' }}>
+            <Button onClick={() => this.setState({ collapse: !collapse })} variant='contained' color='primary'
+                    style={{ width: '100%', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }}>
               {chatRoomTitle}
             </Button>
           </Grid>
@@ -104,13 +109,13 @@ class ChatRoom extends Component {
                       'aria-label': 'Description',
                     }}
                     onChange={this.handleInput}
-                    onFocus={()=>this.setState({focus: true})}
-                    onBlur={()=>this.setState({focus: false})}
+                    onFocus={() => this.setState({ focus: true })}
+                    onBlur={() => this.setState({ focus: false })}
                     value={message}
                   />
                   <IconButton color='primary' onClick={this.handleSend}>
-                    <Send />
-                  </IconButton >
+                    <Send/>
+                  </IconButton>
                 </Grid>
               </Grid>
             </Collapse>
@@ -126,7 +131,7 @@ ChatRoom.propTypes = {
 }
 
 ChatRoom.defaultProps = {
-  name: 'guest '+Math.floor(Math.random()*1000),
+  name: 'guest ' + Math.floor(Math.random() * 1000),
   channel: '__global__'
 }
 

@@ -24,7 +24,6 @@ export default {
     "the_location": "地點",
     "your_role": "你的角色",
     "players": "玩家",
-    "players": "玩家",
     "first_player": "首家",
     "location_reference": "地點參考",
     "end_game": "結束遊戲",
