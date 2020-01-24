@@ -1,18 +1,16 @@
-import { Component } from 'react'
-import { Typography, Grid, Button, Slide } from '@material-ui/core/index'
+import React, { Component } from 'react'
+import { Button, Grid, Slide, Typography } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
-import { database, dbonce, dbon, dboff, dbset, dbupdate } from '../lib/init-firebase'
+import { dboff, dbon, dbonce, dbset, dbupdate } from '../lib/init-firebase'
 import { withi18n } from '../lib/i18n'
 // import locations from '../lib/locations'
 import randInt from '../lib/rand-int'
 import Loading from './svg/loading'
 import Game from './game'
-import ToggleDeleteButton from './toggle-delete-button'
 import NameTag from './name-tag'
 import after24hours from '../lib/after24hours'
-import ChatRoom from './chatroom'
 
-const styles = theme => ({
+const styles = () => ({
   center: {
     left: 0,
     right: 0,
@@ -23,8 +21,6 @@ const styles = theme => ({
   }
 })
 
-@withi18n
-@withStyles(styles)
 class Room extends Component {
   state = {
     room: null,
@@ -33,10 +29,10 @@ class Room extends Component {
   }
 
   componentWillMount = () => {
-    const { name, roomName } = this.props
+    const { roomName } = this.props
     console.log('will mount')
     dbon(`/rooms/${roomName}`, 'value', room => this.setState({ room }))
-    window.addEventListener("beforeunload", this.componentWillUnmount)
+    window.addEventListener('beforeunload', this.componentWillUnmount)
   }
 
   componentWillUnmount = () => {
@@ -46,12 +42,11 @@ class Room extends Component {
     if (!!room && !!room.players && Object.keys(room.players).length > 1) {
       console.log(`rm /rooms/${roomName}/players/${name}`)
       dbset(`/rooms/${roomName}/players/${name}`, null)
-    }
-    else if (!!room && !!room.players && Object.keys(room.players).indexOf(name) !== -1) {
+    } else if (!!room && !!room.players && Object.keys(room.players).indexOf(name) !== -1) {
       console.log(`rm /rooms/${roomName}`)
       dbset(`/rooms/${roomName}`, null)
     }
-    window.removeEventListener("beforeunload", this.componentWillUnmount)
+    window.removeEventListener('beforeunload', this.componentWillUnmount)
   }
 
   startGame = () => {
@@ -95,7 +90,7 @@ class Room extends Component {
   }
 
   onChangeName = async (oldName, newName) => {
-    if(newName === oldName) return
+    if (newName === oldName) return
     this.setState({ loading: true })
     const { roomName, i18n: { ui } } = this.props
     let s = await dbonce(`rooms/${roomName}/players/${newName}`)
@@ -112,13 +107,13 @@ class Room extends Component {
   }
 
   onDeletePlayer = async player => {
-    const { roomName, i18n: { ui } } = this.props
+    const { roomName } = this.props
     console.log(player)
     await dbset(`rooms/${roomName}/players/${player}`, null)
   }
 
   render() {
-    const { i18n, i18n: { ui }, leaveRoom, name, roomName, classes } = this.props
+    const { i18n: { ui }, leaveRoom, name, roomName } = this.props
     const { room, loading } = this.state
     if (room && room.players && Object.keys(room.players).indexOf(this.state.name) === -1) {
       alert(ui.you_have_been_kicked_out)
@@ -126,27 +121,29 @@ class Room extends Component {
     }
     return (
       <Grid direction='column' container justify='center'>
-        <Grid item style={{margin:"8px"}}>
-          <Typography variant="display3">{ui.room}: {roomName}</Typography>
+        <Grid item style={{ margin: '8px' }}>
+          <Typography variant="h2">{ui.room}: {roomName}</Typography>
         </Grid>
-        {(loading ? <Loading /> : null)}
+        {(loading ? <Loading/> : null)}
         {/* {JSON.stringify(room)} */}
 
-        <Grid item style={{margin:"8px"}}>
+        <Grid item style={{ margin: '8px' }}>
           <Slide direction="left" in={room && room.playing} mountOnEnter unmountOnExit>
-            <Game room={room} name={name} roomName={roomName} endGame={this.endGame} />
+            <div>
+              <Game room={room} name={name} roomName={roomName} endGame={this.endGame}/>
+            </div>
           </Slide>
         </Grid>
         {/* {room && Object.keys(room.players).join()} */}
-        {(room && room.playing ? null : <Grid item>
+        {(room && room.playing ? <div/> : <Grid item>
           <Grid container justify='center'>
             <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
               <Grid container justify='center' direction='column' alignItems='center'>
                 {room && room.players && Object.keys(room.players).map(player => (
                   <Grid item style={{ textAlign: 'center' }}>
                     {(player === name
-                      ? <NameTag value={player} onChange={newName => this.onChangeName(player, newName)} />
-                      : <NameTag value={player} onDelete={() => this.onDeletePlayer(player)} />)}
+                      ? <NameTag value={player} onChange={newName => this.onChangeName(player, newName)}/>
+                      : <NameTag value={player} onDelete={() => this.onDeletePlayer(player)}/>)}
                   </Grid>
                 ))}
               </Grid>
@@ -154,22 +151,22 @@ class Room extends Component {
           </Grid>
         </Grid>)}
         {(room && room.playing
-          ? (null)
-          : (
-            <Grid item>
-              <Grid container justify='center'>
-                <Grid item style={{margin:"8px"}}>
-                  <Button color='secondary' variant='raised' onClick={leaveRoom}>{ui.leave_room}</Button>
+            ? (<div/>)
+            : (
+              <Grid item>
+                <Grid container justify='center'>
+                  <Grid item style={{ margin: '8px' }}>
+                    <Button color='secondary' variant='contained' onClick={leaveRoom}>{ui.leave_room}</Button>
+                  </Grid>
+                  <Grid item style={{ margin: '8px' }}>
+                    <Button color='primary' variant='contained' onClick={this.startGame}>{ui.start_game}</Button>
+                  </Grid>
                 </Grid>
-                <Grid item style={{margin:"8px"}}>
-                  <Button color='primary' variant='raised' onClick={this.startGame}>{ui.start_game}</Button>
-                </Grid>
-              </Grid>
-            </Grid>)
+              </Grid>)
         )}
       </Grid>
     )
   }
 }
 
-export default Room
+export default withi18n(withStyles(styles)(Room))

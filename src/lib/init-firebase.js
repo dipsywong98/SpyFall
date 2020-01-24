@@ -1,4 +1,4 @@
-import config from '../../config'
+import config from '../config'
 import firebase from 'firebase/app'
 import 'firebase/database'
 // import firebase from 'firebase'
@@ -10,7 +10,7 @@ try {
 
 let database = firebase.database()
 
-const dbonce = async (ref, type = 'value') => await new Promise((resolve, reject) => {
+const dbonce = async (ref, type = 'value') => await new Promise((resolve) => {
   database.ref(ref).once(type).then(snapshot => { resolve(snapshot.val()) }, function (errorObject) {
     console.log("The read failed: " + errorObject.code);
   })//.catch(reject)

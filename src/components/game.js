@@ -1,36 +1,39 @@
-import { Component } from 'react'
-import { Typography, Grid, Button, Slide, Collapse, Paper } from '@material-ui/core/index'
+import React, { Component } from 'react'
+import { Button, Collapse, Grid, Paper, Typography } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import { withi18n } from '../lib/i18n'
 // import locations from '../lib/locations'
-import randInt from '../lib/rand-int'
-import Loading from './svg/loading'
 import ToggleDeleteButton from './toggle-delete-button'
 
-const styles = theme => ({
+const styles = () => ({
   paper: {
     backgroundColor: '#F0F0F0',
     width: '100%'
   }
 })
-@withi18n
-@withStyles(styles)
+
 class Game extends Component {
   state = { hide: false, secondsLeft: 99999, timer: null }
+
   componentWillMount() {
-    this.state.timer = setInterval(() => {
-      let secondsLeft = this.props.room.startTime / 1000 + 60 * 10 - Date.now() / 1000
-      if (secondsLeft <= 0) {
-        clearInterval(this.state.timer)
-        this.state.timer = null
+    this.setState({
+        timer: setInterval(() => {
+          let secondsLeft = this.props.room.startTime / 1000 + 60 * 10 - Date.now() / 1000
+          if (secondsLeft <= 0) {
+            clearInterval(this.state.timer)
+            this.setState({ timer: null })
+          }
+          this.setState({ secondsLeft })
+        }, 1000)
       }
-      this.setState({ secondsLeft })
-    }, 1000)
+    )
   }
+
   componentWillUnmount() {
     clearInterval(this.state.timer)
-    this.state.timer = null
+    this.setState({ timer: null })
   }
+
   render() {
     const { i18n, i18n: { ui }, room, endGame, classes } = this.props
     const { hide, secondsLeft } = this.state
@@ -39,7 +42,7 @@ class Game extends Component {
     else if (room.location && i18n.locations[room.location]) role = i18n.locations[room.location].roles[room.players[this.props.name]]
     return (
       <div>
-        <Grid container direction='column' justify='center' spacing={16} style={{ textAlign: 'center' }}>
+        <Grid container direction='column' justify='center' style={{ textAlign: 'center' }} spacing={1}>
           <Grid item>
             <Grid container justify='center'>
               <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
@@ -56,12 +59,12 @@ class Game extends Component {
             </Grid>
           </Grid>
           <Grid item>
-            <Typography variant='display1'>
+            <Typography variant='h4'>
               {ui.first_player}
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant='title'>
+            <Typography variant='h6'>
               {room.firstPlayer}
             </Typography>
           </Grid>
@@ -71,7 +74,7 @@ class Game extends Component {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant='title'>
+            <Typography variant='h4'>
               {Math.floor(secondsLeft / 60)}: {Math.floor(secondsLeft % 60)}
             </Typography>
           </Grid>
@@ -79,19 +82,19 @@ class Game extends Component {
             <Paper elevation={4}>
               <Collapse in={!hide} collapsedHeight="40px">
                 <Button
-                  variant="raised"
+                  variant="contained"
                   elevation={4}
                   className={classes.paper}
                   onClick={() => this.setState({ hide: !hide })}
                 >
-                  <Grid container direction='column' spacing={16}>
+                  <Grid container direction='column' spacing={2}>
                     <Grid item>
-                      <Typography variant="display2" item>
+                      <Typography variant="display1" item>
                         {ui.your_role}
                       </Typography>
                     </Grid>
                     <Grid>
-                      <Typography variant="title" item>
+                      <Typography variant="h4" item>
                         {role}
                       </Typography>
                     </Grid>
@@ -101,7 +104,7 @@ class Game extends Component {
                       </Typography>
                     </Grid>
                     <Grid item>
-                      <Typography variant="title" item>
+                      <Typography variant="h4" item>
                         {(room.players[this.props.name] === 'spy'
                           ? ui.you_are_the_spy
                           : i18n.locations[room.location].name)}
@@ -121,14 +124,18 @@ class Game extends Component {
           <Grid item>
             <Grid container justify='center'>
               <Grid item xl={6} lg={6} md={8} sm={10} xs={12}>
-                <Grid container justify='center' spacing={8}>
-                  {Object.values(i18n.locations).map(({ name }) => (<Grid item> <ToggleDeleteButton children={name} /></Grid>))}
+                <Grid container justify='center' spacing={1}>
+                  {Object.values(i18n.locations).map(({ name }) => (
+                    <Grid item>
+                      <ToggleDeleteButton children={name}/>
+                    </Grid>
+                  ))}
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
-            <Button color='secondary' variant='raised' onClick={endGame}>{ui.end_game}</Button>
+            <Button color='secondary' variant='contained' onClick={endGame}>{ui.end_game}</Button>
           </Grid>
         </Grid>
       </div>
@@ -137,4 +144,4 @@ class Game extends Component {
   }
 }
 
-export default Game
+export default withi18n(withStyles(styles)(Game))

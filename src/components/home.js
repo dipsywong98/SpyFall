@@ -1,10 +1,9 @@
-import { Component } from 'react'
-import { Grid, TextField, Typography, Button, Slide } from '@material-ui/core/index'
+import React, { Component } from 'react'
+import { Button, Grid, Slide, TextField, Typography } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import LangPicker from './lang-picker'
 import { withi18n } from '../lib/i18n'
-import config from '../../config'
-import { database, dbonce, dbset, dbupdate } from '../lib/init-firebase'
+import { dbonce, dbset } from '../lib/init-firebase'
 import Room from './room'
 import Loading from './svg/loading'
 import LastUpdate from './last-update'
@@ -21,8 +20,6 @@ const getInitialRoom = name => ({
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -43,24 +40,22 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto'
   }
-});
+})
 
-@withi18n
-@withStyles(styles)
 class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
       name: '',
-      roomName: null,
+      roomName: '',
       loading: false,
       joinedRoom: false,
-      id: randInt(1,1001)
+      id: randInt(1, 1001)
     }
   }
 
   changeName = newName => {
-    this.setState({name: newName})
+    this.setState({ name: newName })
   }
 
   nameChangeHandler = ({ target: { value } }) => {
@@ -74,7 +69,7 @@ class Home extends Component {
   newRoom = async () => {
     this.setState({ loading: true })
     const { roomName, name } = this.state
-    const { i18n: { ui }, joinRoom, updateRoom } = this.props
+    const { i18n: { ui } } = this.props
     let s = await dbonce(`/rooms/${roomName}`)
     if (!!s) {
       alert(`${ui.room} ${roomName} ${ui.already_exist}`)
@@ -89,7 +84,7 @@ class Home extends Component {
   joinRoom = async () => {
     this.setState({ loading: true })
     const { roomName, name } = this.state
-    const { i18n: { ui }, joinRoom, updateRoom } = this.props
+    const { i18n: { ui } } = this.props
     let s = await dbonce(`/rooms/${roomName}`)
     if (!s) {
       alert(`${ui.room} ${roomName} ${ui.not_exist}`)
@@ -117,15 +112,14 @@ class Home extends Component {
     const { name, roomName, loading, joinedRoom, id } = this.state
     return (
       <div className={classes.root}>
-        {/* <div className={classes.placeHolder} children='hi' only={['md', 'lg', 'xl']} /> */}
-        {(loading ? <Grid item children={<Loading />} /> : null)}
-        <ChatRoom channel={(joinedRoom?roomName:'__global__')} name={(joinedRoom?name:`Guest ${id}`)} />
+        {(loading ? <Grid item children={<Loading/>}/> : null)}
+        <ChatRoom channel={(joinedRoom ? roomName : '__global__')} name={(joinedRoom ? name : `Guest ${id}`)}/>
         <Grid item className={classes.relative}>
           <Slide direction="right" in={!joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
-              <Typography variant="display3">{ui.welcome_to_spyfall}</Typography>
+              <Typography variant="h2">{ui.welcome_to_spyfall}</Typography>
               <Grid container justify="center">
-                <Grid item style={{margin:"8px"}}>
+                <Grid item style={{ margin: '8px' }}>
                   <TextField
                     id="name"
                     label={ui.enter_your_name}
@@ -135,7 +129,7 @@ class Home extends Component {
                     item
                   />
                 </Grid>
-                <Grid item style={{margin:"8px"}}>
+                <Grid item style={{ margin: '8px' }}>
                   <TextField
                     id="room_name"
                     label={ui.enter_room_name}
@@ -147,18 +141,18 @@ class Home extends Component {
                 </Grid>
               </Grid>
               <Grid container justify="center">
-                <Grid item style={{margin:"8px"}}>
+                <Grid item style={{ margin: '8px' }}>
                   <Button
-                    variant="raised"
+                    variant="contained"
                     color="secondary"
                     onClick={this.newRoom}
                     disabled={!name || !roomName || loading}>
                     {ui.new_room}
                   </Button>
                 </Grid>
-                <Grid item style={{margin:"8px"}}>
+                <Grid item style={{ margin: '8px' }}>
                   <Button
-                    variant="raised"
+                    variant="contained"
                     color="primary"
                     onClick={this.joinRoom}
                     disabled={!name || !roomName || loading}>
@@ -167,21 +161,21 @@ class Home extends Component {
                 </Grid>
               </Grid>
               <Grid style={{ marginTop: '32px' }} item>
-                <LangPicker />
+                <LangPicker/>
               </Grid>
-              <Grid  style={{ marginTop: '32px' }} item>
-                <LastUpdate repo='dipsywong98/SpyFall' />
+              <Grid style={{ marginTop: '32px' }} item>
+                <LastUpdate repo='dipsywong98/SpyFall'/>
               </Grid>
             </div>
           </Slide>
           <Slide direction="left" in={joinedRoom} mountOnEnter unmountOnExit className={classes.absolute}>
             <div>
-              <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} changeName={this.changeName} />
+              <Room name={name} roomName={roomName} leaveRoom={this.leaveRoom} changeName={this.changeName}/>
               <Grid style={{ marginTop: '32px' }} item>
-                <LangPicker />
+                <LangPicker/>
               </Grid>
               <Grid style={{ marginTop: '32px' }} item>
-                <LastUpdate repo='dipsywong98/SpyFall' />
+                <LastUpdate repo='dipsywong98/SpyFall'/>
               </Grid>
             </div>
           </Slide>
@@ -191,4 +185,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default withi18n(withStyles(styles)(Home))

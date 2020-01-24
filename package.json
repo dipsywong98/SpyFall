@@ -1,35 +1,45 @@
 {
   "name": "spyfall",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "build": "next build && next export",
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "next build"
-  },
-  "author": "",
-  "license": "ISC",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "@material-ui/core": "latest",
+    "@material-ui/core": "^4.9.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "color-hash": "^1.0.3",
-    "firebase": "^5.0.4",
-    "jss": "latest",
-    "material-ui": "^0.20.1",
-    "moment": "^2.22.2",
-    "next": "^6.0.3",
-    "node-fetch": "^2.1.2",
+    "firebase": "^7.7.0",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
     "prop-types": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-ga": "^2.5.3",
-    "react-jss": "latest",
-    "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-ga": "^2.7.0",
+    "react-jss": "^10.0.3",
+    "react-redux": "^7.1.3",
+    "react-scripts": "3.3.0",
+    "redux": "^4.0.5",
+    "styled-jsx": "^3.2.4"
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.0.0-beta.49",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

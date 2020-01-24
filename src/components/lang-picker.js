@@ -1,6 +1,6 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Grid, Typography, Button, Menu, MenuItem } from '@material-ui/core/index'
+import { Button, Menu, MenuItem } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import { setLang } from '../lib/store'
 import { langList } from '../lib/i18n'
@@ -15,7 +15,6 @@ const styles = theme => ({
   }
 })
 
-@withStyles(styles)
 class Picker extends Component {
   state = {
     anchorEl: null,
@@ -42,7 +41,6 @@ class Picker extends Component {
 
 
   render() {
-    const { lang, classes } = this.props
     const { anchorEl } = this.state
     return (
       <div>
@@ -57,7 +55,7 @@ class Picker extends Component {
         >
           {
             Object.keys(langList).map(lang => (
-              <MenuItem onClick={() => this.handleClose(lang)}>
+              <MenuItem onClick={() => this.handleClose(lang)} key={lang}>
                 {langList[lang].name}
               </MenuItem>))
           }
@@ -68,6 +66,6 @@ class Picker extends Component {
 }
 
 const mapStateToProps = ({ lang }) => ({ lang })
-const mapDispatchToProps = (dispatch, ownProps) => ({ setLang: (...args) => dispatch(setLang(...args)) })
+const mapDispatchToProps = (dispatch) => ({ setLang: (...args) => dispatch(setLang(...args)) })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Picker)
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(Picker))

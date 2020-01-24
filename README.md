@@ -9,8 +9,8 @@ This is just copying from the game by [Hobby World](http://international.hobbywo
 ```sh
 git clone https://github.com/dipsywong98/SpyFall.git
 cd SpyFall
-npm i
-npm run dev
+yarn
+yarn serve
 #app on localhost:3000
 ```
 

@@ -1,6 +1,5 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Typography, Grid, List, ListItem, ListItemText, Input, Paper, Button, Collapse, IconButton } from '@material-ui/core'
+import React from 'react'
+import { Grid, ListItem, Typography } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import ColorHash from 'color-hash'
 import moment from 'moment'
@@ -37,7 +36,7 @@ const Chip = ({ name, message, time, classes, me = false }) => {
           <Grid container justify='space-between' alignItems='baseline'>
             <Grid item>
               {(me
-                ? <Typography variant='subheading'>{message}</Typography>
+                ? <Typography variant='subtitle2'>{message}</Typography>
                 : <Typography variant='body2' style={{ color }}>{name}</Typography>)}
             </Grid>
             <Grid item>
@@ -49,7 +48,7 @@ const Chip = ({ name, message, time, classes, me = false }) => {
         </Grid>
         {(!me &&
           <Grid item>
-            <Typography variant='subheading'>{message}</Typography>
+            <Typography variant='subtitle1'>{message}</Typography>
           </Grid>)}
       </Grid>
     </ListItem>

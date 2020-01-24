@@ -1,5 +1,5 @@
-import { Component } from 'react'
-import { Grid, TextField, Button } from '@material-ui/core/index'
+import React, { Component } from 'react'
+import { Button } from '@material-ui/core/index'
 
 export default class ToggleDeleteButton extends Component {
   state = {

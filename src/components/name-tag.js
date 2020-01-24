@@ -1,5 +1,5 @@
-import { Component } from 'react'
-import { Typography, Paper, Button, Grid, Modal, TextField } from '@material-ui/core/index'
+import React, { Component } from 'react'
+import { Button, Grid, Modal, Paper, TextField, Typography } from '@material-ui/core/index'
 import { withStyles } from '@material-ui/core/styles'
 import Clear from './svg/clear'
 import Edit from './svg/edit'
@@ -18,8 +18,6 @@ const styles = theme => ({
   },
 })
 
-@withi18n
-@withStyles(styles)
 class NameTag extends Component {
   state = {
     editing: false,
@@ -35,7 +33,7 @@ class NameTag extends Component {
     if(this.props.onChange)this.props.onChange(this.state.value)
   }
   toggleModal = () => {
-    this.state.oldKeyIsr = window.onkeyup
+    this.setState({ oldKeyIsr: window.onkeyup })
     window.onkeyup = e => {
       const key = e.keyCode ? e.keyCode : e.which
       console.log(key)
@@ -48,7 +46,7 @@ class NameTag extends Component {
     return (
       <Paper style={{width:'250px'}}>
         <Grid container justify='space-between' alignItems='center'>
-          <Typography variant='body2' item xs={10} item style={{marginLeft:'8px'}}>{this.props.value}</Typography>
+          <Typography variant='body2' xs={10} item style={{ marginLeft: '8px' }}>{this.props.value}</Typography>
           <Grid item >
             {this.props.onChange && <Button align="right" size='small' onClick={this.toggleModal} children={<Edit />} />}
             {this.props.onDelete && <Button align="right" size='small' onClick={this.props.onDelete} children={<Clear />} />}
@@ -61,7 +59,7 @@ class NameTag extends Component {
           onClose={this.handleClose}
         >
           <div className={classes.paper}>
-            <Typography variant="title" id="modal-title">
+            <Typography variant="h4" id="modal-title">
               New value
             </Typography>
             <TextField
@@ -79,4 +77,4 @@ class NameTag extends Component {
   }
 }
 
-export default NameTag
+export default withi18n(withStyles(styles)(NameTag))

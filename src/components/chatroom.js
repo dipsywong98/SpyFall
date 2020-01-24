@@ -1,8 +1,8 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Grid, List, ListItem, ListItemText, Input, Paper, Button, Collapse, IconButton } from '@material-ui/core'
+import { Button, Collapse, Grid, IconButton, Input, List, Paper } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import { dbon, dbupdate, dbset, dboff } from '../lib/init-firebase'
+import { dboff, dbon, dbset } from '../lib/init-firebase'
 import Send from './svg/send'
 import Chip from './chatroom-chip'
 
@@ -27,7 +27,6 @@ const styles = theme => ({
   }
 })
 
-@withStyles(styles)
 class ChatRoom extends Component {
   state = {
     messages: [],
@@ -41,10 +40,10 @@ class ChatRoom extends Component {
     const { channel } = this.props
     console.log(`subsribe to ${channel}`)
     dbon(`rooms/${channel}/chat`, 'value', value => this.setState({
-      messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
-      cursor: value && value.cursor || 0
+      messages: (value && value.messages && value.messages.sort((a, b) => a.time - b.time)) || [],
+      cursor: (value && value.cursor) || 0
     }))
-    this.state.oldIsr = window.onkeyup
+    this.setState({ oldIsr: window.onkeyup })
     window.onkeyup = e => {
       const key = e.keyCode ? e.keyCode : e.which
       if(key===13) this.state.focus && this.handleSend()
@@ -58,8 +57,8 @@ class ChatRoom extends Component {
     dboff(`rooms/${this.props.channel}/chat`, 'value')
     console.log(`unsubsribe to ${this.props.channel} and subscribe to ${nextProps.channel}`)
     dbon(`rooms/${nextProps.channel}/chat`, 'value', value => this.setState({
-      messages: value && value.messages && value.messages.sort((a,b)=>a.time-b.time) || [],
-      cursor: value && value.cursor || 0
+      messages: (value && value.messages && value.messages.sort((a, b) => a.time - b.time)) || [],
+      cursor: (value && value.cursor) || 0
     }))
   }
   
@@ -68,7 +67,7 @@ class ChatRoom extends Component {
   }
   handleSend = () => {
     const { channel, name } = this.props
-    let { messages, message, cursor } = this.state
+    let { message, cursor } = this.state
     if(message === '') return
     const newMessage = { time: Date.now(), name, message }
     this.setState({ message: '' })
@@ -77,7 +76,7 @@ class ChatRoom extends Component {
     this.setState({cursor})
   }
   render() {
-    const { classes, name } = this.props
+    const { classes } = this.props
     const chatRoomTitle = this.props.chatRoomTitle || 'chatroom'
     const { message, messages, collapse } = this.state
     return (
@@ -94,7 +93,7 @@ class ChatRoom extends Component {
                 <Grid item className={classes.messageContainer}>
                   <List>
                     {messages.map(({ name, message, time }) => (
-                      <Chip name={name} message={message} time={time} me={name === this.props.name}/>
+                      <Chip name={name} message={message} time={time} me={name === this.props.name} key={time}/>
                     ))}
                   </List>
                 </Grid>
@@ -131,4 +130,4 @@ ChatRoom.defaultProps = {
   channel: '__global__'
 }
 
-export default ChatRoom
+export default withStyles(styles)(ChatRoom)

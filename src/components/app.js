@@ -1,9 +1,8 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { store } from '../lib/store'
 import { initGA, logPageView } from '../lib/ga'
-import Loading from './svg/loading'
-import { Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core'
 
 export default class App extends Component {
   state = {

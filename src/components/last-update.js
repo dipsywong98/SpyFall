@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
-import { Component } from 'react'
+import React, { Component } from 'react'
 import { Typography } from '@material-ui/core'
+
 export default class LastUpdate extends Component {
   state={
     lastUpdate: 'Last Update: loading...'
