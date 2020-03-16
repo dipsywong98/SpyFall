@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "75055f0843464cb5200f8289f6f08a02",
+    "revision": "039ecd085fe6a21cc5b4d3f0e6a6cc4b",
     "url": "/SpyFall/index.html"
   },
   {
-    "revision": "8abaacefddb9696a905b",
-    "url": "/SpyFall/static/js/2.914608f2.chunk.js"
+    "revision": "9e272237a2bfc3195882",
+    "url": "/SpyFall/static/js/2.5c0aa50f.chunk.js"
   },
   {
     "revision": "11b85fdfd2d9a9bba538c2dd62bfeab3",
-    "url": "/SpyFall/static/js/2.914608f2.chunk.js.LICENSE"
+    "url": "/SpyFall/static/js/2.5c0aa50f.chunk.js.LICENSE"
   },
   {
     "revision": "6cadc7353df83977c5f5",
