@@ -24,7 +24,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: yarn 
+    - run: yarn ci
     - run: yarn build
     - uses: peaceiris/actions-gh-pages@v3
       with:
