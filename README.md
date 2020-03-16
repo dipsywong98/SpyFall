@@ -1,4 +1,5 @@
 # SpyFall
+![gh-pages](https://github.com/dipsywong98/SpyFall/workflows/gh-pages/badge.svg)
 Live on [https://dipsywong98.github.io/SpyFall/](https://dipsywong98.github.io/SpyFall/)
 
 This is just copying from the game by [Hobby World](http://international.hobbyworld.ru/) and other related repos
