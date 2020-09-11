@@ -4,16 +4,16 @@
     "main.js.map": "/SpyFall/static/js/main.e0153f10.chunk.js.map",
     "runtime-main.js": "/SpyFall/static/js/runtime-main.d8c28796.js",
     "runtime-main.js.map": "/SpyFall/static/js/runtime-main.d8c28796.js.map",
-    "static/js/2.b30fb161.chunk.js": "/SpyFall/static/js/2.b30fb161.chunk.js",
-    "static/js/2.b30fb161.chunk.js.map": "/SpyFall/static/js/2.b30fb161.chunk.js.map",
+    "static/js/2.17f2154f.chunk.js": "/SpyFall/static/js/2.17f2154f.chunk.js",
+    "static/js/2.17f2154f.chunk.js.map": "/SpyFall/static/js/2.17f2154f.chunk.js.map",
     "index.html": "/SpyFall/index.html",
-    "precache-manifest.05afbd910a55ee419ceec967f385ef3f.js": "/SpyFall/precache-manifest.05afbd910a55ee419ceec967f385ef3f.js",
+    "precache-manifest.221f81b733819c878e87b97bf11b0233.js": "/SpyFall/precache-manifest.221f81b733819c878e87b97bf11b0233.js",
     "service-worker.js": "/SpyFall/service-worker.js",
-    "static/js/2.b30fb161.chunk.js.LICENSE.txt": "/SpyFall/static/js/2.b30fb161.chunk.js.LICENSE.txt"
+    "static/js/2.17f2154f.chunk.js.LICENSE.txt": "/SpyFall/static/js/2.17f2154f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d8c28796.js",
-    "static/js/2.b30fb161.chunk.js",
+    "static/js/2.17f2154f.chunk.js",
     "static/js/main.e0153f10.chunk.js"
   ]
 }
